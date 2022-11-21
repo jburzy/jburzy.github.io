@@ -27,6 +27,7 @@ export const SidebarMenu = styled.ul`
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 80px);
     text-align: center;
+    padding-inline-start: 0px;
 
     @media screen and (max-width: 480px) {
         grid-template-rows: repeat(6, 60px);
@@ -53,12 +54,14 @@ export const SidebarWrapper = styled.div`
 export const SidebarLink = styled(LinkS)`
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
     justify-content: center;
+    font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
     list-style: none;
     transition: 0.2s ease-in-out;
+    padding: 0 1rem;
+    text-decoration: none;
     color: #fff;
     cursor: pointer;
 
