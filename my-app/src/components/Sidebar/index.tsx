@@ -9,6 +9,7 @@ import {
     SidebarLink,
     SidebarMenu
 } from './SidebarElements'
+import pdf from '../../documents/jb_resume.pdf'
 
 type Props = {
     isOpen: boolean;
@@ -34,7 +35,7 @@ const Sidebar = (props: Props) => {
                 </SidebarLink>
             </SidebarMenu>
             <SideBtnWrap>
-                <SidebarRoute to="/resume">Resume</SidebarRoute>
+                <SidebarRoute href={pdf} target="_blank">Resume</SidebarRoute>
             </SideBtnWrap>
         </SidebarWrapper>
     </SidebarContainer>
