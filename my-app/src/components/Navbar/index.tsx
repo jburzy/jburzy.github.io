@@ -12,7 +12,9 @@ import {
   NavBtnLink,
 } from './NavbarElements'
 
-type Props = {}
+type Props = {
+  toggle: any
+}
 
 const Navbar = (props: Props) => {
   return (
@@ -20,7 +22,7 @@ const Navbar = (props: Props) => {
         <Nav>
             <NavbarContainer>
                 <NavLogo to='/'>Jackson Burzynski</NavLogo>
-                <MobileIcon>
+                <MobileIcon onClick={props.toggle}>
                   <FaBars />
                 </MobileIcon>
                 <NavMenu>
