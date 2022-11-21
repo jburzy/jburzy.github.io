@@ -1,5 +1,7 @@
 import React from 'react'
 import {FaBars} from 'react-icons/fa'
+import pdf from '../../documents/jb_resume.pdf'
+
 import {
   Nav,
   NavbarContainer,
@@ -37,7 +39,7 @@ const Navbar = (props: Props) => {
                   </NavItem>
                 </NavMenu>
                 <NavBtn>
-                  <NavBtnLink to='/resume'>Resume</NavBtnLink>
+                  <NavBtnLink href={pdf} target="_blank">Resume</NavBtnLink>
                 </NavBtn>
             </NavbarContainer>
         </Nav>
