@@ -1,4 +1,5 @@
 import React from 'react'
+//import { Button } from '../ButtonElement';
 
 import {
     InfoContainer,
@@ -7,7 +8,7 @@ import {
     Column1,
     TextWrapper,
     Heading,
-    Subtitle
+    Subtitle,
 } from './InfoElements'
 
 type Props = {

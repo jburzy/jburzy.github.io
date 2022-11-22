@@ -86,7 +86,7 @@ export const Subtitle = styled.p<InfoSectionProps>`
     color: ${({darkText}) => (darkText ? '#000000': '#fff')};
 `
 
-/*export const BtnWrap = styled.div`
+export const BtnWrap = styled.div`
     display: flex;
     justify-content: flex-start;
 `
@@ -100,4 +100,4 @@ export const Img = styled.img`
     width: 100%
     margin: 0 0 10px 0;
     padding-right: 0;
-`*/
+`
