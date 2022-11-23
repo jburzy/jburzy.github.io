@@ -6,9 +6,13 @@ import {
     InfoWrapper,
     InfoRow,
     Column1,
+    Column2,
     TextWrapper,
     Heading,
     Subtitle,
+    InfoH1,
+    ImgWrap,
+    Img
 } from './InfoElements'
 
 type Props = {
@@ -18,6 +22,9 @@ type Props = {
     id: string;
     heading: string;
     description: string;
+    imgStart: any;
+    img: any;
+    alt: any
 }
   
 
@@ -25,15 +32,20 @@ const InfoSection = (props: Props) => {
   return (
     <>
       <InfoContainer lightBg={props.lightBg} id={props.id} >
+        <InfoH1>{props.heading}</InfoH1>
         <InfoWrapper>
-            <InfoRow>
-                <Column1>
-                <TextWrapper>
-                    <Heading lightText={props.lightText}>{props.heading}</Heading>
-                    <Subtitle darkText={props.darkText}>{props.description}</Subtitle>
-                </TextWrapper>
-                </Column1>
-            </InfoRow>
+          <InfoRow imgStart={props.imgStart}>
+            <Column1>
+              <TextWrapper>
+                <Subtitle darkText={props.darkText}>{props.description}</Subtitle>
+              </TextWrapper>
+            </Column1>
+            <Column2>
+              <ImgWrap>
+                <Img src={props.img}/>
+              </ImgWrap>
+            </Column2>
+          </InfoRow>
         </InfoWrapper>
       </InfoContainer>
     </>

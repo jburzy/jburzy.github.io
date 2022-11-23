@@ -31,7 +31,7 @@ const Sidebar = (props: Props) => {
                     Research
                 </SidebarLink>
                 <SidebarLink to="projects" onClick={props.toggle}>
-                    Projects
+                    Talks & Publications
                 </SidebarLink>
             </SidebarMenu>
             <SideBtnWrap>

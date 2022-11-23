@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
+import { IconContext } from 'react-icons/lib'
 import {FaBars} from 'react-icons/fa'
 import pdf from '../../documents/jb_resume.pdf'
+import { animateScroll as scroll } from 'react-scroll'
 
 import {
   Nav,
@@ -27,29 +29,51 @@ const Navbar = (props: Props) => {
     } else {
       setScrollNav(false)
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', changeNav)
-  }, [])
+  }, []);
+
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
 
   return (
     <>
+      <IconContext.Provider value={{color: '#fff'}}>
         <Nav scrollNav={scrollNav}>
             <NavbarContainer>
-                <NavLogo to='/'>Jackson Burzynski</NavLogo>
+                <NavLogo to='/' onClick={toggleHome}>
+                  Jackson Burzynski
+                </NavLogo>
                 <MobileIcon onClick={props.toggle}>
                   <FaBars />
                 </MobileIcon>
                 <NavMenu>
                   <NavItem>
-                    <NavLinks to="about">About</NavLinks>
+                    <NavLinks to="about"
+                    smooth={true} 
+                    duration={500} 
+                    spy={true} 
+                    offset={-80}
+                    >About</NavLinks>
                   </NavItem>
                   <NavItem>
-                    <NavLinks to="research">Research</NavLinks>
+                    <NavLinks to="research"
+                    smooth={true} 
+                    duration={500} 
+                    spy={true} 
+                    offset={-80}
+                    >Research</NavLinks>
                   </NavItem>
                   <NavItem>
-                    <NavLinks to="projects">Projects</NavLinks>
+                    <NavLinks to="projects"
+                    smooth={true} 
+                    duration={500} 
+                    spy={true} 
+                    offset={-80}
+                    >Talks & Publications</NavLinks>
                   </NavItem>
                 </NavMenu>
                 <NavBtn>
@@ -57,6 +81,7 @@ const Navbar = (props: Props) => {
                 </NavBtn>
             </NavbarContainer>
         </Nav>
+      </IconContext.Provider>
     </>
   )
 }

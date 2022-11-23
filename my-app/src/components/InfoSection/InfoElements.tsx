@@ -10,6 +10,7 @@ interface InfoSectionProps {
 export const InfoContainer = styled.div<InfoSectionProps>`
     color: #fff;
     background: ${({lightBg}) => (lightBg ? '#f9f9f9' : '#fff')};
+    padding: 24px 0;
 
     @media screen and (max-width: 768px) {
         padding: 100px 0;
@@ -21,20 +22,20 @@ export const InfoWrapper = styled.div`
     z-index: 1;
     height: 860px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin-right: auto;
-    margin-left: 0 24px;
+    margin-left: auto;
     justify-content: center;
 `
 
 export const InfoRow = styled.div<InfoSectionProps>`
     display: grid;
-    grid-auto-columns: minmax(auto, 1fr);
+    grid-auto-columns: minmax(auto, 1fr);    
     align-items: center;
-    grid-template-areas: ${({imgStart}) => (imgStart ? `'col2 col1'` : `'col1 col2`)};
+    grid-template-areas: ${({imgStart}) => (imgStart ?  `'col2 col1'` : `'col1 col2'`)};
 
     @media screen and (max-width: 768px) {
-        grid-template-area: ${({imgStart}) => (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)}
+        grid-template-areas: ${({imgStart}) => (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)};
     }
 `
 
@@ -67,10 +68,12 @@ export const TopLine = styled.p`
 `
 
 export const Heading = styled.h1<InfoSectionProps>`
-    margin-bottom: 24px;
+    margin-left: 24px;
     font-size: 48px;
+    max-height: 80px;
     line-height: 1.1;
     font-weight: bold;
+    text-align: center;
     color: ${({lightText}) => (lightText ? '#fff': '#000000')};
 
     @media screen and (max-width: 480px) {
@@ -78,12 +81,28 @@ export const Heading = styled.h1<InfoSectionProps>`
     }
 `
 
+export const ResearchList = styled.ul`
+    list-style: square;
+    align-items: center;
+    text-align: left;
+    margin-left: 200px;
+    color: '#000000';
+`
+
+export const ResearchItem = styled.li`
+    height: 80px;
+    font-weight: bold;
+    color: '#000000';
+`
+
 export const Subtitle = styled.p<InfoSectionProps>`
-    max-width: 440px;
+    max-width: 600px;
     margin-bottom: 35px;
     font-size: 18px;
     line-height: 24px;
-    color: ${({darkText}) => (darkText ? '#000000': '#fff')};
+    color: ${({lightText}) => (lightText ? '#fff': '#000000')};
+    text-align: justify;
+    text-justify: inter-word;
 `
 
 export const BtnWrap = styled.div`
@@ -93,11 +112,25 @@ export const BtnWrap = styled.div`
 
 export const ImgWrap = styled.div`
     max-width: 555px;
-    height: 100%
+    height: 100%;
 `
 
 export const Img = styled.img`
-    width: 100%
+    width: 100%;
     margin: 0 0 10px 0;
     padding-right: 0;
+`
+
+export const InfoH1 = styled.h1`
+    margin-left: 24px;
+    font-size: 48px;
+    max-height: 80px;
+    line-height: 1.1;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+
+    @media screen and (max-width: 480px) {
+        font-size: 32px;
+    }
 `

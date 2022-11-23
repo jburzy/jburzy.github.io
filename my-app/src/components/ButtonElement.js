@@ -10,15 +10,16 @@ export const Button = styled(Link)`
     font-size: ${({fontBig}) => (fontBig ? '20px': '16px' )}; 
     outline: none;
     border: none;
-    cursor: pointer:
+    cursor: pointer;
+    text-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease-in-out;
 
-    #:hover {
+    &:hover {
         transition: all 0.2s ease-in-out;
-        background: ${({primary}) => (primary ? '#fff' : '#01bf71')};
+        background: #fff;
+        color: #010606;
     }
-
 `

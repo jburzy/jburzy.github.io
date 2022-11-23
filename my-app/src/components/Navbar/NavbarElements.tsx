@@ -27,7 +27,7 @@ export const Nav = styled.nav<NavSectionProps>`
 export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    heigh: 80px;
+    height: 80px;
     z-index: 1;
     width: 100%;
     padding: 0 24px;

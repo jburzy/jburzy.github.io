@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaGithub, FaLinkedin, FaTwitch } from 'react-icons/fa'
+import { FaGithub, FaGitlab, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { animateScroll as scroll } from 'react-scroll'
 
 import {
     FooterContainer,
@@ -19,10 +20,15 @@ import {
 type Props = {}
 
 const Footer = (props: Props) => {
+
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <FooterContainer>
       <FooterWrap>
-        <FooterLinksContainer>
+        {/* <FooterLinksContainer>
             <FooterLinksWrapper>
                 <FooterLinkItems>
                     <FooterLinkTitle>Contact</FooterLinkTitle>
@@ -32,14 +38,18 @@ const Footer = (props: Props) => {
                     <FooterLink>GitLab</FooterLink>
                 </FooterLinkItems>
             </FooterLinksWrapper>
-        </FooterLinksContainer>
+        </FooterLinksContainer> */}
         <SocialMedia>
             <SocialMediaWrap>
-                <SocialLogo to='/'>
+                <SocialLogo to='/' onClick={toggleHome}>
                     Jackson Burzynski
                 </SocialLogo>
                 <SocialIcons>
-                    <SocialIconLink href="//www.https://www.linkedin.com/in/jackson-burzynski-4220ab108" target="_blank"
+                    <SocialIconLink href="mailto: jackson.carl.burzynski@cern.ch" target="_blank"
+                    aria-label="EMail">
+                      <FaEnvelope />
+                    </SocialIconLink>
+                    <SocialIconLink href="//www.linkedin.com/in/jackson-burzynski-4220ab108" target="_blank"
                     aria-label="LinkedIn">
                       <FaLinkedin />
                     </SocialIconLink>
@@ -47,9 +57,9 @@ const Footer = (props: Props) => {
                     aria-label="Github">
                       <FaGithub />
                     </SocialIconLink>
-                    <SocialIconLink href="/" target="_blank"
-                    aria-label="Twitter">
-                      <FaTwitch />
+                    <SocialIconLink href="https://gitlab.cern.ch/jburzyns" target="_blank"
+                    aria-label="Gitlab">
+                      <FaGitlab />
                     </SocialIconLink>
                 </SocialIcons>
             </SocialMediaWrap>
