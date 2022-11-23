@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PubContainer = styled.div`
     background: #f9f9f9;
-    height: 800px;
+    height: auto;
     justify-content: center;
     align-items: center;
     padding: 24px 0;
