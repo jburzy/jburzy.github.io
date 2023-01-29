@@ -6,7 +6,21 @@ export const homeObjOne = {
     topLine: '',
     heading: 'About me',
     description: 
-        'Hello! I am a high energy physicist, software developer, and data scientist currently working as a postdoctoral researcher with the ATLAS collaboration at CERN. I am interested in the intersection between fundamental research and real-world problems...',
+        'Hello! I am a high energy physicist, software developer, and data \
+        scientist currently working as a postdoctoral researcher with the ATLAS \
+        collaboration at CERN. My research background includes \
+        physics analysis, machine learning, reconstruction software, and detector \
+        commissioning. Broadly speaking, I am interested in searches for \
+        long-lived particles (LLPs) and the development of the novel \
+        reconstruction methods required to search for them. In particular, my \
+        research has focused on searches for exotic decays of the Higgs boson to LLPs which \
+        decay in the ATLAS Inner Detector (ID). With the largest high energy \
+        physics dataset ever collected in hand and Run 3 just around the corner, \
+        this is an exciting time for LHC physics both in terms of discovery \
+        potential as well as opportunity for innovation. I am eager to continue \
+        my research program through improving and expanding on analyses using \
+        the Run 2 dataset, new ideas for analyses, and preparing for Run 3 and \
+        beyond!',
     imgStart: false,
     img: require('../../images/img1.jpg'),
     alt: '',
