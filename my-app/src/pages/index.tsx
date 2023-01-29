@@ -6,6 +6,7 @@ import PublicationSection from '../components/PublicationSection'
 import Footer from '../components/Footer'
 import { homeObjOne, homeObjTwo, homeObjThree } from '../components/InfoSection/Data'
 import HeroSection from '../components/HeroSection'
+import ResearchSection from '../components/ResearchSection'
 
 type Props = {}
 
@@ -21,7 +22,7 @@ const Home = (props: Props) => {
             <Navbar toggle={toggle}/>
             <HeroSection />
             <InfoSection {...homeObjOne}/>
-            <InfoSection {...homeObjTwo}/>
+            <ResearchSection/>
             <PublicationSection/>
             <Footer />
         </>
