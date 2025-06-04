@@ -1,55 +1,45 @@
-import React from 'react'
-//import { Button } from '../ButtonElement';
-
+import React from 'react';
 import {
-    InfoContainer,
-    InfoWrapper,
-    InfoRow,
-    Column1,
-    Column2,
-    TextWrapper,
-    Heading,
-    Subtitle,
-    InfoH1,
-    ImgWrap,
-    Img
-} from './InfoElements'
+  InfoContainer,
+  InfoWrapper,
+  Heading,
+  SectionHeader,
+  EntryList,
+  Entry,
+  EntrySub,
+  Bold
+} from './InfoElements';
 
-type Props = {
-    lightBg: boolean;
-    lightText: boolean;
-    darkText: boolean;
-    id: string;
-    heading: string;
-    description: string;
-    imgStart: any;
-    img: any;
-    alt: any
-}
-  
-
-const InfoSection = (props: Props) => {
+const AboutSection = () => {
   return (
-    <>
-      <InfoContainer lightBg={props.lightBg} id={props.id} >
-        <InfoH1>{props.heading}</InfoH1>
-        <InfoWrapper>
-          <InfoRow imgStart={props.imgStart}>
-            <Column1>
-              <TextWrapper>
-                <Subtitle darkText={props.darkText}>{props.description}</Subtitle>
-              </TextWrapper>
-            </Column1>
-            <Column2>
-              <ImgWrap>
-                <Img src={props.img}/>
-              </ImgWrap>
-            </Column2>
-          </InfoRow>
-        </InfoWrapper>
-      </InfoContainer>
-    </>
-  )
-}
+    <InfoContainer id="about">
+      <InfoWrapper>
+        <Heading>About Me</Heading>
 
-export default InfoSection
+        <SectionHeader>Education</SectionHeader>
+        <EntryList>
+          <Entry>
+            <Bold>PhD, University of Massachusetts Amherst</Bold> (2021)
+            <EntrySub>Advisor: Benjamin Brau</EntrySub>
+            <EntrySub>
+              Thesis: <a href="https://link.springer.com/book/10.1007/978-3-031-30466-8" target="_blank" rel="noopener noreferrer">A Search for Exotic Higgs Decays
+Or: How I Learned to Stop Worrying and Love Long-Lived Particles</a>
+            </EntrySub>
+          </Entry>
+          <Entry>
+            <Bold>BS, Tufts University</Bold> (2016)
+          </Entry>
+        </EntryList>
+
+        <SectionHeader>Previous Positions</SectionHeader>
+        <EntryList>
+          <Entry>
+            <Bold>Postdoctoral Research Fellow</Bold>, Simon Fraser University (2021–2025)
+          </Entry>
+        </EntryList>
+      </InfoWrapper>
+    </InfoContainer>
+  );
+};
+
+export default AboutSection;

@@ -1,136 +1,58 @@
 import styled from "styled-components";
 
-interface InfoSectionProps {
-    imgStart?: boolean;
-    lightBg?: boolean;
-    lightText?: boolean;
-    darkText?: boolean;
-}
-
-export const InfoContainer = styled.div<InfoSectionProps>`
-    color: #fff;
-    background: ${({lightBg}) => (lightBg ? '#f9f9f9' : '#fff')};
-    padding: 24px 0;
-
-    @media screen and (max-width: 768px) {
-        padding: 100px 0;
-    }
-`
+export const InfoContainer = styled.div`
+  background: #f9f9f9;
+  padding: 64px 0;
+  display: flex;
+  justify-content: center;
+`;
 
 export const InfoWrapper = styled.div`
-    display: grid;
-    z-index: 1;
-    height: 860px;
-    width: 100%;
-    max-width: 1200px;
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: center;
-`
+  max-width: 1600px;
+  width: 100%;
+  padding: 0 24px;
+`;
 
-export const InfoRow = styled.div<InfoSectionProps>`
-    display: grid;
-    grid-auto-columns: minmax(auto, 1fr);    
-    align-items: center;
-    grid-template-areas: ${({imgStart}) => (imgStart ?  `'col2 col1'` : `'col1 col2'`)};
+export const Heading = styled.h1`
+  font-size: 56px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 24px;
 
-    @media screen and (max-width: 768px) {
-        grid-template-areas: ${({imgStart}) => (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)};
-    }
-`
+  @media screen and (max-width: 480px) {
+    font-size: 36px;
+  }
+`;
 
-export const Column1 = styled.div`
-    margin-bottom: 15px;
-    padding: 0 15px;
-    grid-area: col1;
-`
+export const SectionHeader = styled.h2`
+  font-size: 38px;
+  font-weight: 700;
+  color: #000;
+  margin-top: 40px;
+  margin-bottom: 20px;
+`;
 
-export const Column2 = styled.div`
-    margin-bottom: 15px;
-    padding: 0 15px;
-    grid-area: col2;
-`
+export const EntryList = styled.ul`
+  margin-left: 24px;
+  margin-bottom: 20px;
+  padding-left: 16px;
+`;
 
-export const TextWrapper = styled.div`
-    max-width: 540px;
-    padding-top: 0;
-    padding-bottom: 60px;
-`
+export const Entry = styled.li`
+  margin-bottom: 16px;
+  font-size: 26px;
+  line-height: 1.6;
+  color: #000;
+`;
 
-export const TopLine = styled.p`
-    color: #fff
-    font-size: 16px;
-    line-height: 16px;
-    font-weight: bold;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-`
+export const Bold = styled.span`
+  font-weight: 700;
+`;
 
-export const Heading = styled.h1<InfoSectionProps>`
-    margin-left: 24px;
-    font-size: 48px;
-    max-height: 80px;
-    line-height: 1.1;
-    font-weight: bold;
-    text-align: center;
-    color: ${({lightText}) => (lightText ? '#fff': '#000000')};
-
-    @media screen and (max-width: 480px) {
-        font-size: 32px;
-    }
-`
-
-export const ResearchList = styled.ul`
-    list-style: square;
-    align-items: center;
-    text-align: left;
-    margin-left: 200px;
-    color: '#000000';
-`
-
-export const ResearchItem = styled.li`
-    height: 80px;
-    font-weight: bold;
-    color: '#000000';
-`
-
-export const Subtitle = styled.p<InfoSectionProps>`
-    max-width: 600px;
-    margin-bottom: 35px;
-    font-size: 18px;
-    line-height: 24px;
-    color: ${({lightText}) => (lightText ? '#fff': '#000000')};
-    text-align: justify;
-    text-justify: inter-word;
-`
-
-export const BtnWrap = styled.div`
-    display: flex;
-    justify-content: flex-start;
-`
-
-export const ImgWrap = styled.div`
-    max-width: 555px;
-    height: 100%;
-`
-
-export const Img = styled.img`
-    width: 100%;
-    margin: 0 0 10px 0;
-    padding-right: 0;
-`
-
-export const InfoH1 = styled.h1`
-    margin-left: 24px;
-    font-size: 48px;
-    max-height: 80px;
-    line-height: 1.1;
-    font-weight: bold;
-    text-align: center;
-    color: #000000;
-
-    @media screen and (max-width: 480px) {
-        font-size: 32px;
-    }
-`
+export const EntrySub = styled.div`
+  font-size: 22px;
+  color: #555;
+  margin-left: 0.5rem;
+`;

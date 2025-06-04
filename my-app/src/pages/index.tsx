@@ -4,9 +4,9 @@ import Navbar from '../components/Navbar'
 import InfoSection from '../components/InfoSection'
 import PublicationSection from '../components/PublicationSection'
 import Footer from '../components/Footer'
-import { homeObjOne, homeObjTwo, homeObjThree } from '../components/InfoSection/Data'
 import HeroSection from '../components/HeroSection'
 import ResearchSection from '../components/ResearchSection'
+import ContactSection from '../components/ContactSection'
 
 type Props = {}
 
@@ -21,9 +21,10 @@ const Home = (props: Props) => {
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
             <HeroSection />
-            <InfoSection {...homeObjOne}/>
+            <InfoSection />
             <ResearchSection/>
             <PublicationSection/>
+            <ContactSection/>
             <Footer />
         </>
     )

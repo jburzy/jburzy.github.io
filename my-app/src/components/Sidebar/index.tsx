@@ -9,7 +9,7 @@ import {
     SidebarLink,
     SidebarMenu
 } from './SidebarElements'
-import pdf from '../../documents/jb_resume.pdf'
+import pdf from '../../documents/CV.pdf'
 
 type Props = {
     isOpen: boolean;
@@ -31,11 +31,14 @@ const Sidebar = (props: Props) => {
                     Research
                 </SidebarLink>
                 <SidebarLink to="projects" onClick={props.toggle}>
-                    Talks & Publications
+                    Selected Publications
+                </SidebarLink>
+               <SidebarLink to="contact" onClick={props.toggle}>
+                    Contact
                 </SidebarLink>
             </SidebarMenu>
             <SideBtnWrap>
-                <SidebarRoute href={pdf} target="_blank">Resume</SidebarRoute>
+                <SidebarRoute href={pdf} target="_blank">CV</SidebarRoute>
             </SideBtnWrap>
         </SidebarWrapper>
     </SidebarContainer>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { IconContext } from 'react-icons/lib'
-import {FaBars} from 'react-icons/fa'
-import pdf from '../../documents/jb_resume.pdf'
+import { FaBars } from 'react-icons/fa'
+import pdf from '../../documents/CV.pdf'
 import { animateScroll as scroll } from 'react-scroll'
 
 import {
@@ -20,70 +20,63 @@ type Props = {
   toggle: any;
 }
 
-const Navbar = (props: Props) => {
+const Navbar = ({ toggle }: Props) => {
   const [scrollNav, setScrollNav] = useState(false)
 
-  const changeNav = ()=> {
-    if(window.scrollY >= 80) {
-      setScrollNav(true)
-    } else {
-      setScrollNav(false)
-    }
-  };
+  const changeNav = () => {
+    setScrollNav(window.scrollY >= 80)
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', changeNav)
-  }, []);
+    return () => window.removeEventListener('scroll', changeNav)
+  }, [])
 
   const toggleHome = () => {
-    scroll.scrollToTop();
-  };
+    scroll.scrollToTop()
+  }
 
   return (
-    <>
-      <IconContext.Provider value={{color: '#fff'}}>
-        <Nav scrollNav={scrollNav}>
-            <NavbarContainer>
-                <NavLogo to='/' onClick={toggleHome}>
-                  Jackson Burzynski
-                </NavLogo>
-                <MobileIcon onClick={props.toggle}>
-                  <FaBars />
-                </MobileIcon>
-                <NavMenu>
-                  <NavItem>
-                    <NavLinks to="about"
-                    smooth={true} 
-                    duration={500} 
-                    spy={true} 
-                    offset={-80}
-                    >About</NavLinks>
-                  </NavItem>
-                  <NavItem>
-                    <NavLinks to="research"
-                    smooth={true} 
-                    duration={500} 
-                    spy={true} 
-                    offset={-80}
-                    >Research</NavLinks>
-                  </NavItem>
-                  <NavItem>
-                    <NavLinks to="projects"
-                    smooth={true} 
-                    duration={500} 
-                    spy={true} 
-                    offset={-80}
-                    >Talks & Publications</NavLinks>
-                  </NavItem>
-                </NavMenu>
-                <NavBtn>
-                  <NavBtnLink href={pdf} target="_blank">Resume</NavBtnLink>
-                </NavBtn>
-            </NavbarContainer>
-        </Nav>
-      </IconContext.Provider>
-    </>
+    <IconContext.Provider value={{ color: '#ffffff' }}>
+      <Nav scrollNav={scrollNav}>
+        <NavbarContainer>
+          <NavLogo to="/" onClick={toggleHome}>
+            Prof. Jackson Burzynski
+          </NavLogo>
+          <MobileIcon onClick={toggle}>
+            <FaBars />
+          </MobileIcon>
+          <NavMenu>
+            <NavItem>
+              <NavLinks to="about" smooth duration={500} spy offset={-80}>
+                About
+              </NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="research" smooth duration={500} spy offset={-80}>
+                Research
+              </NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="projects" smooth duration={500} spy offset={-80}>
+                Selected Publications
+              </NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="contact" smooth duration={500} spy offset={-80}>
+                Contact
+              </NavLinks>
+            </NavItem>
+          </NavMenu>
+          <NavBtn>
+            <NavBtnLink href={pdf} target="_blank" rel="noopener noreferrer">
+              CV
+            </NavBtnLink>
+          </NavBtn>
+        </NavbarContainer>
+      </Nav>
+    </IconContext.Provider>
   )
 }
 
-export default Navbar;
+export default Navbar

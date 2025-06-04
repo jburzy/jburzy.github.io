@@ -1,73 +1,97 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ResearchContainer = styled.div`
-    background: #f9f9f9;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    padding: 24px 0;
+  background: #f9f9f9;
+  padding: 64px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-    @media screen and (max-width: 768px) {
-        padding: 100px 0;
-    }
-`
+export const MainTitle = styled.h1`
+  font-size: 56px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 24px;
 
+  @media screen and (max-width: 480px) {
+    font-size: 36px;
+  }
+`;
 
-export const ResearchWrapper = styled.div`
-    height: 860px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-`
+export const Section = styled.div`
+  width: 100%;
+  max-width: 1600px;
+  margin-bottom: 80px;
+`;
 
-export const ResearchList = styled.ul`
-    list-style: square;
-    align-items: left;
-    text-align: left;
-    justify-content: left;
-    margin-bottom: 64px;
-    margin-left: 64px;
-    color: '#000000';
-`
+export const SectionTitle = styled.h2`
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 32px;
 
-export const ResearchItem = styled.li`
-    color: '#000000';
-    text-align: left;
-    justify-content: left;
-    margin: 12px;
-`
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
+`;
 
-export const ResearchH1 = styled.h1`
-    margin-left: 24px;
-    font-size: 48px;
-    max-height: 80px;
-    line-height: 1.1;
-    font-weight: bold;
-    text-align: center;
-    color: '#000000';
+interface RowProps {
+  reverse?: boolean;
+}
 
-    @media screen and (max-width: 480px) {
-        font-size: 32px;
-    }
-`
+export const Row = styled.div<RowProps>`
+  display: flex;
+  flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-export const ResearchH2 = styled.h2`
-    margin-left: 48px;
-    font-size: 24px;
-    max-height: 80px;
-    line-height: 1.1;
-    text-align: left;
-    color: '#000000';
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
 
-    @media screen and (max-width: 480px) {
-        font-size: 24px;
-    }
-`
+export const TextColumn = styled.div`
+  flex: 1;
+  padding: 24px;
+  min-width: 300px;
+  max-width: 600px;
+`;
 
-export const TextWrapper = styled.div`
-    margin-left: 48px;
-    margin-right: 48px;
-    max-width: 1100px;
-    padding-top: 0;
-    padding-bottom: 60px;
-`
+export const ImageWrap = styled.div`
+  flex: 1;
+  padding: 24px;
+  min-width: 300px;
+  max-width: 800px;
+`;
+
+export const Img = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 0px solid #ccc;
+`;
+
+export const Paragraph = styled.p`
+  font-size: 24px;
+  line-height: 1.6;
+  color: #222;
+  margin-bottom: 16px;
+`;
+
+export const ExternalLink = styled.a`
+  color: #841617;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-bottom: 2px solid #841617;
+  }
+`;

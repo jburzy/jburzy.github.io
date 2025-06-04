@@ -1,47 +1,38 @@
-import React, {useState} from 'react'
-import { Button } from '../ButtonElement'
-import Video from '../../videos/video.mp4'
+import React from 'react';
+import profileImage from '../../images/img1.jpg' // ✅ import from src
 import {
-    HeroContainer,
-    HeroBg,
-    VideoBg,
-    HeroContent,
-    HeroH1,
-    HeroP,
-    HeroBtnWrapper,
-    ArrowForward,
-    ArrowRight
-} from './HeroElements'
+  HeroContainer,
+  HeroWrapper,
+  HeroImage,
+  HeroText,
+  Name,
+  Title,
+  University,
+  About,
+  CVButton
+} from './HeroElements';
+import pdf from '../../documents/CV.pdf'
 
-type Props = {}
 
-const HeroSection = (props: Props) => {
-  
-  const [hover, setHover] = useState(false)
-
-  const onHover = () => {
-    setHover(!hover)
-  };
-
+const HeroSection = () => {
   return (
     <HeroContainer>
-        <HeroBg>
-            <VideoBg autoPlay loop muted src={Video}/>
-        </HeroBg>
-        <HeroContent>
-          <HeroH1>Postdoctoral researcher with the ATLAS Experiment</HeroH1>
-          <HeroBtnWrapper>
-            <Button to="about" 
-            onMouseEnter={onHover} 
-            onMouseLeave={onHover}
-            smooth={true}
-            duration={500}
-            ><b>Learn more</b> {hover ? <ArrowForward /> : <ArrowRight />}
-            </Button>
-          </HeroBtnWrapper>
-        </HeroContent>
+      <HeroWrapper>
+        <HeroImage src={profileImage} alt="Profile" />
+        <HeroText>
+          <Name>Jackson Burzynski</Name>
+          <Title>Assistant Professor</Title>
+          <University>University of Oklahoma</University>
+          <About>
+            I am a particle physicist working on the ATLAS Experiment at CERN, specializing in searches for new physics, charged particle track reconstruction, and machine learning.
+          </About>
+        <CVButton href={pdf} target="_blank" rel="noopener noreferrer">
+          View my CV
+        </CVButton>
+        </HeroText>
+      </HeroWrapper>
     </HeroContainer>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;
