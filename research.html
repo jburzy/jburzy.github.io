@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Research — Jackson Burzynski</title>
+  <meta name="description" content="Research of Jackson Burzynski: long-lived particle searches, dark QCD and emerging jets, and machine-learning track reconstruction with the ATLAS experiment.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://1.www.s81c.com" crossorigin>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css">
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/mono.css">
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body class="cds-theme-zone-white">
+  <script>
+    /* Theme: follow the browser/system preference, with a manual override
+       stored in localStorage (set by the header toggle) */
+    (function () {
+      var m = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() {
+        var stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (e) {}
+        return stored || (m.matches ? 'dark' : 'light');
+      }
+      function apply() {
+        document.body.className = current() === 'dark' ? 'cds-theme-zone-g100' : 'cds-theme-zone-white';
+      }
+      apply();
+      m.addEventListener('change', apply);
+      document.addEventListener('click', function (e) {
+        if (e.target.closest && e.target.closest('.theme-toggle')) {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          try { localStorage.setItem('theme', next); } catch (e2) {}
+          apply();
+        }
+      });
+    })();
+  </script>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a class="site-header__name" href="/">Prof. Jackson Burzynski</a>
+      <nav class="site-header__nav" aria-label="Site">
+        <a href="/">Home</a>
+        <a href="/research.html" aria-current="page">Research</a>
+        <a href="/group.html">Group</a>
+        <a href="/teaching.html">Teaching</a>
+        <a href="/news.html">News</a>
+        <a href="/links.html">Links</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+        <svg class="icon-moon" viewBox="0 0 32 32" aria-hidden="true"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194 11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016 13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555 1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38 1.015 1.015 0 0 0 14.98 3Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 12.005a4 4 0 1 1-4 4 4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6 6 6 0 0 0-6-6ZM5.394 6.813 6.81 5.399l3.505 3.506L8.9 10.319zM2 15.005h5v2H2zm3.394 10.193L8.9 21.692l1.414 1.414-3.505 3.506zM15 25.005h2v5h-2zm6.687-1.9 1.414-1.414 3.506 3.506-1.414 1.414zm3.313-8.1h5v2h-5zm-3.313-6.101 3.506-3.506 1.414 1.414-3.506 3.506zM15 2.005h2v5h-2z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-head">
+        <h1 class="page-title">Research</h1>
+        <p class="page-subtitle">
+          Searches for physics beyond the Standard Model with the ATLAS
+          experiment at the Large Hadron Collider.
+        </p>
+      </div>
+
+      <section class="section">
+        <h2>Long-lived particles</h2>
+        <div class="section__body">
+          <div class="figure-text">
+            <figure class="figure-text__figure">
+              <img src="/assets/research-llp.png" width="787" height="787" loading="lazy"
+                alt="Visualization of a long-lived particle decay in the ATLAS detector">
+            </figure>
+            <div>
+              <p>
+                Long-lived particles (LLPs) are a possible sign of new physics
+                and could decay far from where they are created, leaving
+                unusual signals in the detector that standard searches might
+                miss.
+              </p>
+              <p>
+                My research focuses on identifying long-lived particles in the
+                ATLAS Inner Detector. I coordinate a wide-ranging search
+                program targeting displaced decays from the Higgs boson,
+                long-lived heavy neutral leptons, and exotic particles
+                connected to dark matter.
+              </p>
+              <p>
+                <a href="https://atlas.cern/Updates/Briefing/Higgs-to-LongLived-Particles" rel="noopener">Physics briefing →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Dark QCD &amp; emerging jets</h2>
+        <div class="section__body">
+          <div class="figure-text">
+            <figure class="figure-text__figure">
+              <img src="/assets/research-emerging-jets.png" width="800" height="800" loading="lazy"
+                alt="Schematic of an emerging jet">
+            </figure>
+            <div>
+              <p>
+                Dark sector models with confining gauge groups, such as dark
+                QCD, can produce jet-like sprays of long-lived particles.
+                These “emerging jets” feature tracks that materialize at large
+                radii.
+              </p>
+              <p>
+                I developed the first emerging jet tagger in ATLAS using a
+                transformer architecture, which powered the first Run 3 search
+                for this signature.
+              </p>
+              <p>
+                <a href="https://atlas.cern/Updates/Briefing/Shedding-Light" rel="noopener">Physics briefing →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Track reconstruction with ML</h2>
+        <div class="section__body">
+          <div class="figure-text">
+            <figure class="figure-text__figure">
+              <img src="/assets/research-gnn-tracking.png" width="800" height="800" loading="lazy"
+                alt="Illustration of graph neural network based track reconstruction">
+            </figure>
+            <div>
+              <p>
+                The High-Luminosity LHC presents new challenges for track
+                reconstruction due to dense environments and high pile-up. My
+                research develops GNN-based algorithms to reconstruct
+                displaced tracks with high efficiency and precision.
+              </p>
+              <p>
+                These tools will be crucial to enabling LLP searches and
+                integrating advanced ML models into the ATLAS offline and
+                trigger systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Selected publications</h2>
+        <div class="section__body">
+          <ul class="pub-list">
+            <li>
+              ATLAS Collaboration, <i>Search for emerging jets in pp collisions at √s = 13.6 TeV with the ATLAS experiment</i>,
+              <a href="https://arxiv.org/abs/2505.02429" rel="noopener">arXiv:2505.02429 [hep-ex]</a>
+            </li>
+            <li>
+              ATLAS Collaboration, <i>Search for light long-lived particles in pp collisions at √s = 13 TeV using displaced vertices in the ATLAS inner detector</i>,
+              Phys. Rev. Lett. 133 (2024) 161803,
+              <a href="https://arxiv.org/abs/2403.15332" rel="noopener">arXiv:2403.15332 [hep-ex]</a>
+            </li>
+            <li>
+              ATLAS Collaboration, <i>Performance of the reconstruction of large impact parameter tracks in the inner detector of ATLAS</i>,
+              Eur. Phys. J. C 83 (2023) 1081,
+              <a href="https://arxiv.org/abs/2304.12867" rel="noopener">arXiv:2304.12867 [hep-ex]</a>
+            </li>
+            <li>
+              ATLAS Collaboration, <i>Search for exotic decays of the Higgs boson into long-lived particles in pp collisions at √s = 13 TeV using displaced vertices in the ATLAS inner detector</i>,
+              JHEP 11 (2021) 229,
+              <a href="https://arxiv.org/abs/2107.06092" rel="noopener">arXiv:2107.06092 [hep-ex]</a>
+            </li>
+            <li>
+              ATLAS Collaboration, <i>Search for long-lived neutral particles produced in pp collisions at √s = 13 TeV decaying into displaced hadronic jets in the ATLAS inner detector and muon spectrometer</i>,
+              Phys. Rev. D 101 (2020) 052013,
+              <a href="https://arxiv.org/abs/1911.12575" rel="noopener">arXiv:1911.12575 [hep-ex]</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <span>© 2026 Jackson Burzynski</span>
+      <span><a href="mailto:burzynski@ou.edu">burzynski@ou.edu</a></span>
+    </div>
+  </footer>
+</body>
+</html>
