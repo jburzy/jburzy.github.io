@@ -559,21 +559,59 @@ figure.section__rail-figure {
   margin: 0;
 }
 
-.figure-text__figure img {
+.figure-text__figure img,
+.figure-text__figure svg {
   display: block;
   width: 100%;
+  height: auto;
 }
 
-/* Research figures are drawn for light backgrounds — give them a white
-   plate in the dark theme so dark strokes stay legible */
-.cds-theme-zone-g100 .figure-text__figure img:not([class]) {
-  background: #ffffff;
-  padding: 1rem;
+/* Research graphics: inline SVGs colored with Carbon tokens so they
+   adapt to the light and dark themes automatically */
+.rs-subtle {
+  stroke: var(--cds-border-subtle-01, #c6c6c6);
 }
 
-.cds-theme-zone-g100 .hero__photo img {
-  background: none;
-  padding: 0;
+.rs-struct {
+  stroke: var(--cds-icon-secondary, #525252);
+}
+
+.rs-accent {
+  stroke: var(--cds-link-primary, #0f62fe);
+}
+
+.rs-accent-fill {
+  fill: var(--cds-link-primary, #0f62fe);
+}
+
+.rs-subtle-fill {
+  fill: var(--cds-border-subtle-01, #c6c6c6);
+}
+
+.rs-struct-fill {
+  fill: var(--cds-icon-secondary, #525252);
+}
+
+.rs-magenta {
+  stroke: #d02670;
+}
+
+.rs-magenta-fill {
+  fill: #d02670;
+}
+
+.cds-theme-zone-g100 .rs-magenta {
+  stroke: #ff7eb6;
+}
+
+.cds-theme-zone-g100 .rs-magenta-fill {
+  fill: #ff7eb6;
+}
+
+.rs-text {
+  fill: var(--cds-text-secondary, #525252);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
 }
 
 /* ---------- Tiles (Carbon tile) ---------- */

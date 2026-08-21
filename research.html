@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Research — Jackson Burzynski</title>
-  <meta name="description" content="Research of Jackson Burzynski: long-lived particle searches, dark QCD and emerging jets, and machine-learning track reconstruction with the ATLAS experiment.">
+  <meta name="description" content="Research of Jackson Burzynski: unconventional signatures, charged particle track reconstruction, machine learning, and future colliders.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -71,29 +71,58 @@
       </div>
 
       <section class="section">
-        <h2>Long-lived particles</h2>
+        <h2>Searches for unconventional signatures</h2>
         <div class="section__body">
           <div class="figure-text">
             <figure class="figure-text__figure">
-              <img src="/assets/research-llp.png" width="787" height="787" loading="lazy"
-                alt="Visualization of a long-lived particle decay in the ATLAS detector">
+              <svg viewBox="0 0 240 240" role="img" aria-label="Sketch of a detector cross-section: a neutral long-lived particle travels invisibly away from the collision point before decaying into a burst of displaced tracks, with a second displaced spray on the other side">
+                <g fill="none" stroke-width="1.5">
+                  <circle class="rs-subtle" cx="120" cy="128" r="26"/>
+                  <circle class="rs-subtle" cx="120" cy="128" r="56"/>
+                  <circle class="rs-subtle" cx="120" cy="128" r="86"/>
+                  <circle class="rs-subtle" cx="120" cy="128" r="112"/>
+                  <g class="rs-struct" stroke-width="1">
+                    <path d="M120 128 L58 104"/>
+                    <path d="M120 128 L98 192"/>
+                    <path d="M120 128 L180 168"/>
+                  </g>
+                  <path class="rs-struct" stroke-dasharray="4 5" d="M120 128 L168 74"/>
+                  <g class="rs-accent" stroke-width="1.8">
+                    <path d="M168 74 L190 24"/>
+                    <path d="M168 74 L206 40"/>
+                    <path d="M168 74 L212 62"/>
+                    <path d="M168 74 L214 84"/>
+                  </g>
+                  <path class="rs-struct" stroke-dasharray="4 5" d="M120 128 L76 166"/>
+                  <g class="rs-magenta" stroke-width="1.6">
+                    <path d="M76 166 L40 192"/>
+                    <path d="M76 166 L58 206"/>
+                    <path d="M76 166 L30 172"/>
+                  </g>
+                </g>
+                <circle class="rs-accent-fill" cx="168" cy="74" r="3.5"/>
+                <circle class="rs-magenta-fill" cx="76" cy="166" r="3.5"/>
+              </svg>
             </figure>
             <div>
               <p>
-                Long-lived particles (LLPs) are a possible sign of new physics
-                and could decay far from where they are created, leaving
-                unusual signals in the detector that standard searches might
-                miss.
+                Many extensions of the Standard Model predict particles that
+                leave unusual signatures in the detector: long-lived particles
+                (LLPs) that decay far from the collision point, or dark-sector
+                showers that produce jets of displaced tracks. Standard
+                reconstruction and analysis techniques are not designed for
+                these signals, leaving them largely unexplored.
               </p>
               <p>
-                My research focuses on identifying long-lived particles in the
-                ATLAS Inner Detector. I coordinate a wide-ranging search
-                program targeting displaced decays from the Higgs boson,
-                long-lived heavy neutral leptons, and exotic particles
-                connected to dark matter.
+                I coordinate a wide-ranging search program targeting displaced
+                decays from the Higgs boson, long-lived heavy neutral leptons,
+                and exotic particles connected to dark matter. I also developed
+                the first emerging jet tagger in ATLAS, which powered the first
+                Run 3 search for dark QCD.
               </p>
               <p>
-                <a href="https://atlas.cern/Updates/Briefing/Higgs-to-LongLived-Particles" rel="noopener">Physics briefing →</a>
+                <a href="https://atlas.cern/Updates/Briefing/Higgs-to-LongLived-Particles" rel="noopener">Physics briefing: Higgs to long-lived particles →</a><br>
+                <a href="https://atlas.cern/Updates/Briefing/Shedding-Light" rel="noopener">Physics briefing: emerging jets →</a>
               </p>
             </div>
           </div>
@@ -101,27 +130,49 @@
       </section>
 
       <section class="section">
-        <h2>Dark QCD &amp; emerging jets</h2>
+        <h2>Charged particle track reconstruction</h2>
         <div class="section__body">
           <div class="figure-text">
             <figure class="figure-text__figure">
-              <img src="/assets/research-emerging-jets.png" width="800" height="800" loading="lazy"
-                alt="Schematic of an emerging jet">
+              <svg viewBox="0 0 240 240" role="img" aria-label="Sketch of silicon detector layers with hits, and a curved particle track fitted through them">
+                <g fill="none" stroke-width="1.5">
+                  <circle class="rs-subtle" cx="120" cy="250" r="53"/>
+                  <circle class="rs-subtle" cx="120" cy="250" r="91"/>
+                  <circle class="rs-subtle" cx="120" cy="250" r="129"/>
+                  <circle class="rs-subtle" cx="120" cy="250" r="167"/>
+                  <path class="rs-accent" stroke-width="2" d="M120 235 Q 95 140 150 45"/>
+                </g>
+                <g class="rs-subtle-fill">
+                  <circle cx="63" cy="177" r="3"/>
+                  <circle cx="176" cy="184" r="3"/>
+                  <circle cx="46" cy="141" r="3"/>
+                  <circle cx="196" cy="140" r="3"/>
+                  <circle cx="33" cy="98" r="3"/>
+                  <circle cx="210" cy="93" r="3"/>
+                  <circle cx="72" cy="94" r="3"/>
+                </g>
+                <g class="rs-accent-fill">
+                  <circle cx="113" cy="197" r="4"/>
+                  <circle cx="113" cy="159" r="4"/>
+                  <circle cx="119" cy="121" r="4"/>
+                  <circle cx="131" cy="83" r="4"/>
+                </g>
+              </svg>
             </figure>
             <div>
               <p>
-                Dark sector models with confining gauge groups, such as dark
-                QCD, can produce jet-like sprays of long-lived particles.
-                These “emerging jets” feature tracks that materialize at large
-                radii.
+                Charged particle tracks are the foundation of nearly every
+                measurement at the LHC — and the most computationally demanding
+                part of event reconstruction. My work focuses on tracks that
+                standard algorithms are not designed for, especially those with
+                large impact parameters produced in the decays of long-lived
+                particles.
               </p>
               <p>
-                I developed the first emerging jet tagger in ATLAS using a
-                transformer architecture, which powered the first Run 3 search
-                for this signature.
-              </p>
-              <p>
-                <a href="https://atlas.cern/Updates/Briefing/Shedding-Light" rel="noopener">Physics briefing →</a>
+                I led improvements to large-radius tracking in the ATLAS Inner
+                Detector, and I am now developing large impact parameter track
+                reconstruction in the ACTS toolkit to meet the dense
+                environments and high pile-up of the High-Luminosity LHC.
               </p>
             </div>
           </div>
@@ -129,24 +180,98 @@
       </section>
 
       <section class="section">
-        <h2>Track reconstruction with ML</h2>
+        <h2>Machine learning</h2>
         <div class="section__body">
           <div class="figure-text">
             <figure class="figure-text__figure">
-              <img src="/assets/research-gnn-tracking.png" width="800" height="800" loading="lazy"
-                alt="Illustration of graph neural network based track reconstruction">
+              <svg viewBox="0 0 240 240" role="img" aria-label="Sketch of a graph neural network: scattered nodes joined by edges, with one highlighted path through the graph">
+                <g class="rs-subtle" fill="none" stroke-width="1.2">
+                  <path d="M44 186 L72 122"/>
+                  <path d="M72 122 L62 58"/>
+                  <path d="M62 58 L114 40"/>
+                  <path d="M72 122 L126 92"/>
+                  <path d="M44 186 L118 152"/>
+                  <path d="M118 152 L180 172"/>
+                  <path d="M126 92 L180 172"/>
+                  <path d="M126 92 L190 108"/>
+                  <path d="M114 40 L172 52"/>
+                  <path d="M190 108 L172 52"/>
+                  <path d="M118 152 L190 108"/>
+                  <path d="M62 58 L126 92"/>
+                </g>
+                <g class="rs-accent" fill="none" stroke-width="2">
+                  <path d="M44 186 L118 152 L126 92 L172 52"/>
+                </g>
+                <g class="rs-struct-fill">
+                  <circle cx="72" cy="122" r="5"/>
+                  <circle cx="62" cy="58" r="5"/>
+                  <circle cx="114" cy="40" r="5"/>
+                  <circle cx="180" cy="172" r="5"/>
+                  <circle cx="190" cy="108" r="5"/>
+                </g>
+                <g class="rs-accent-fill">
+                  <circle cx="44" cy="186" r="6"/>
+                  <circle cx="118" cy="152" r="6"/>
+                  <circle cx="126" cy="92" r="6"/>
+                  <circle cx="172" cy="52" r="6"/>
+                </g>
+              </svg>
             </figure>
             <div>
               <p>
-                The High-Luminosity LHC presents new challenges for track
-                reconstruction due to dense environments and high pile-up. My
-                research develops GNN-based algorithms to reconstruct
-                displaced tracks with high efficiency and precision.
+                <!-- Stub: text to be refined later -->
+                Machine learning runs through all of my research. I develop
+                algorithms for identifying unconventional physics signatures,
+                for charged particle track reconstruction, and for the
+                reinterpretation of existing searches in new theoretical
+                contexts.
               </p>
               <p>
-                These tools will be crucial to enabling LLP searches and
-                integrating advanced ML models into the ATLAS offline and
-                trigger systems.
+                This includes transformer-based taggers for dark-sector jets
+                and graph neural networks that reconstruct displaced tracks
+                with high efficiency and precision.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Future colliders</h2>
+        <div class="section__body">
+          <div class="figure-text">
+            <figure class="figure-text__figure">
+              <svg viewBox="0 0 240 240" role="img" aria-label="Sketch of a muon collider ring: counter-rotating muon beams colliding at an interaction point">
+                <g fill="none">
+                  <circle class="rs-struct" cx="112" cy="120" r="82" stroke-width="2"/>
+                  <path class="rs-struct" stroke-width="2" d="M104 30 L118 38 L104 46"/>
+                  <path class="rs-struct" stroke-width="2" d="M120 194 L106 202 L120 210"/>
+                  <g class="rs-accent" stroke-width="1.8">
+                    <path d="M194 120 L216 98"/>
+                    <path d="M194 120 L226 114"/>
+                    <path d="M194 120 L222 138"/>
+                    <path d="M194 120 L204 148"/>
+                  </g>
+                  <path class="rs-magenta" stroke-width="1.6" d="M194 120 L212 76"/>
+                </g>
+                <circle class="rs-accent-fill" cx="194" cy="120" r="4"/>
+                <text class="rs-text" x="64" y="28">&#956;&#8314;</text>
+                <text class="rs-text" x="64" y="222">&#956;&#8315;</text>
+                <text class="rs-text" x="112" y="126" text-anchor="middle">10 TeV</text>
+              </svg>
+            </figure>
+            <div>
+              <p>
+                A muon collider could reach 10 TeV collision energies in a
+                compact ring, opening a direct window on physics far beyond the
+                LHC. Its central experimental challenge is the beam-induced
+                background (BIB): decay products of the circulating muons that
+                flood the detector at every bunch crossing.
+              </p>
+              <p>
+                I am developing reconstruction algorithms to deal with the BIB
+                and helping to design detectors for a future 10 TeV muon
+                collider.
               </p>
             </div>
           </div>
