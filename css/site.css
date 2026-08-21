@@ -539,7 +539,32 @@ figure.section__rail-figure {
   text-decoration: none;
 }
 
-/* ---------- Research intro (lede text) ---------- */
+/* ---------- Research intro (lede text + logo column) ---------- */
+
+.research-intro-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 66rem) {
+  .research-intro-wrap {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    gap: 4rem;
+  }
+
+  .logo-row--column {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 0;
+  }
+}
+
+.research-intro-wrap .research-intro {
+  margin-bottom: 0;
+}
 
 .research-intro {
   max-width: 48rem;
@@ -575,12 +600,17 @@ figure.section__rail-figure {
   width: auto;
 }
 
-/* Dark theme: logos keep their brand colors on a light chip */
-.cds-theme-zone-g100 .logo-row img {
-  background: #ffffff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  box-sizing: content-box;
+/* Transparent logo variants per theme */
+.logo-row .logo--dark {
+  display: none;
+}
+
+.cds-theme-zone-g100 .logo-row .logo--light {
+  display: none;
+}
+
+.cds-theme-zone-g100 .logo-row .logo--dark {
+  display: block;
 }
 
 /* ---------- Projects grid (research page) ---------- */
