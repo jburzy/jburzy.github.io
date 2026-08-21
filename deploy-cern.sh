@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
 # Deploy the site to CERN EOS web space (https://jburzyns.web.cern.ch).
 #
-# Prereq: a valid CERN Kerberos ticket —  kinit jburzyns@CERN.CH
-# lxplus will also prompt for your CERN 2FA code.
+# Strategy: log in to lxplus (you'll be prompted for your CERN 2FA code),
+# obtain Kerberos credentials on the remote side if the delegated ones are
+# missing (a macOS ssh quirk), then pull the site from GitHub and mirror it
+# into the EOS www folder. Deploys whatever is on GitHub main — push first!
 #
-# NOTE: --delete makes the EOS www folder an exact mirror of this repo.
-# Anything in /eos/user/j/jburzyns/www that is not in this repo will be
-# removed. Add --exclude rules here if other content lives there.
+# NOTE: the remote rsync uses --delete, so /eos/user/j/jburzyns/www becomes
+# an exact mirror of the repo. Add --exclude rules if other content lives there.
 set -euo pipefail
-cd "$(dirname "$0")"
 
-rsync -av --delete --exclude '.git' \
-  -e "ssh -o GSSAPIAuthentication=yes -o GSSAPIDelegateCredentials=yes" \
-  ./ jburzyns@lxplus.cern.ch:/eos/user/j/jburzyns/www/
+ssh -t -o GSSAPIAuthentication=yes -o GSSAPIDelegateCredentials=yes \
+  jburzyns@lxplus.cern.ch '
+    klist -s 2>/dev/null || kinit
+    TMP=$(mktemp -d)
+    trap "rm -rf \"$TMP\"" EXIT
+    git clone --quiet --depth 1 https://github.com/jburzy/jburzy.github.io "$TMP/site"
+    rsync -av --delete --exclude ".git" --exclude "deploy-cern.sh" \
+      "$TMP/site/" /eos/user/j/jburzyns/www/
+    echo "Deployed to https://jburzyns.web.cern.ch"
+  '
