@@ -551,14 +551,31 @@ figure.section__rail-figure {
 
 @media (min-width: 66rem) {
   .research-intro-wrap {
-    grid-template-columns: minmax(0, 1fr) 18rem;
+    grid-template-columns: minmax(0, 1fr) 24rem;
     gap: 4rem;
   }
 
+  /* CERN + ATLAS side by side, IMCC centered below */
   .logo-row--column {
-    flex-direction: column;
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem 3rem;
     padding: 0;
+  }
+
+  .logo-row--column a:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .logo-row--column img {
+    height: 4.5rem;
+  }
+
+  .logo-row--column a:nth-child(3) img {
+    height: 9rem;
   }
 }
 
