@@ -539,16 +539,48 @@ figure.section__rail-figure {
   text-decoration: none;
 }
 
-/* ---------- Research intro (centered lead text) ---------- */
+/* ---------- Research intro (lede text) ---------- */
 
 .research-intro {
-  max-width: 50rem;
-  margin: 0 auto 4rem;
-  text-align: center;
+  max-width: 48rem;
+  margin: 0 0 4rem;
 }
 
 .research-intro p {
   max-width: none;
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* ---------- Logo strip (home) ---------- */
+
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem 3.5rem;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.logo-row a {
+  display: flex;
+  align-items: center;
+}
+
+.logo-row img {
+  display: block;
+  height: 3.25rem;
+  width: auto;
+}
+
+/* Dark theme: logos keep their brand colors on a light chip */
+.cds-theme-zone-g100 .logo-row img {
+  background: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  box-sizing: content-box;
 }
 
 /* ---------- Projects grid (research page) ---------- */
