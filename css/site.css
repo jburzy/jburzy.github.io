@@ -556,6 +556,31 @@ figure.section__rail-figure {
 .centered-heading {
   text-align: center;
   margin: 0 0 2.5rem;
+  border-top: 1px solid var(--cds-border-subtle-00, #e0e0e0);
+  padding-top: 2rem;
+}
+
+/* ---------- Group members ---------- */
+
+.member-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+}
+
+.member-group h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.member-group p {
+  margin: 0 0 0.25rem;
+}
+
+.member-note {
+  color: var(--cds-text-secondary, #525252);
+  font-style: italic;
 }
 
 .projects-grid {
