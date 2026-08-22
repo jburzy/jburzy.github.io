@@ -164,7 +164,9 @@ git config --global user.email "you@ou.edu"</code></pre>
         <section>
           <h2>Requesting a node on Sooner</h2>
           <p>
-            The group has a dedicated Slurm partition, <code>ouhep</code>.
+            The group has a dedicated Slurm partition, currently named
+            <code>ouheptmp</code> (this will change to <code>ouhep</code> in
+            the future).
             <b>Never run real work on the login nodes</b> &mdash; they are
             shared by everyone and only meant for editing files and submitting
             jobs. Always run your code on an interactive node. To request one:
@@ -194,7 +196,7 @@ git config --global user.email "you@ou.edu"</code></pre>
             of holding an interactive shell. Write a submission script like:
           </p>
           <pre><code>#!/bin/bash
-#SBATCH --partition=ouhep
+#SBATCH --partition=ouheptmp
 #SBATCH --container=el9hw
 #SBATCH --job-name=myjob
 #SBATCH --output=logs/%x-%j.out
