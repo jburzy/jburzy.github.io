@@ -551,7 +551,7 @@ figure.section__rail-figure {
 
 @media (min-width: 66rem) {
   .research-intro-wrap {
-    grid-template-columns: minmax(0, 1fr) 28rem;
+    grid-template-columns: minmax(0, 1fr) 34rem;
     gap: 4rem;
   }
 
@@ -572,6 +572,11 @@ figure.section__rail-figure {
 
   .logo-row--column a img {
     height: 8.5rem;
+  }
+
+  /* ATLAS wordmark reads smaller than the marks beside it */
+  .logo-row--column a:nth-child(2) img {
+    height: 10.625rem;
   }
 
   .logo-row--column a:nth-child(3) img {
