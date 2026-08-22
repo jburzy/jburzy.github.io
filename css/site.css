@@ -784,6 +784,18 @@ figure.section__rail-figure {
   font-size: 13px;
 }
 
+.rs-text--accent {
+  fill: var(--cds-link-primary, #0f62fe);
+}
+
+.rs-text--magenta {
+  fill: #d02670;
+}
+
+.cds-theme-zone-g100 .rs-text--magenta {
+  fill: #ff7eb6;
+}
+
 /* ---------- Tiles (Carbon tile) ---------- */
 
 .tile-grid {
