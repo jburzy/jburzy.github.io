@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css">
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/mono.css">
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css">
-  <link rel="stylesheet" href="/css/site.css?v=8">
+  <link rel="stylesheet" href="/css/site.css?v=9">
 </head>
 <body class="cds-theme-zone-white">
   <script>
@@ -69,63 +69,127 @@
         </p>
       </div>
 
-      <section class="section">
-        <h2>OSCER account</h2>
-        <div class="section__body">
+      <div class="doc">
+        <section>
+          <h2>Basics</h2>
           <p>
-            <!-- Stub: account request walkthrough -->
-            Our group computes on OSCER, the OU Supercomputing Center for
-            Education &amp; Research. Start by requesting an account following
-            the <a href="https://www.ou.edu/oscer/getting-started" rel="noopener">OSCER
-            getting started guide</a>.
+            Before touching a cluster, set up a comfortable local environment.
+            You will spend most of your time in a terminal and an editor, so it
+            is worth getting these right on day one.
           </p>
-        </div>
-      </section>
+          <h3>Terminal</h3>
+          <p>
+            On macOS, install <a href="https://iterm2.com/" rel="noopener">iTerm2</a>
+            &mdash; a far more capable replacement for the built-in Terminal
+            (split panes, search, better copy/paste). If you use
+            <a href="https://brew.sh/" rel="noopener">Homebrew</a> (recommended
+            for managing software on macOS):
+          </p>
+          <pre><code>brew install --cask iterm2</code></pre>
+          <p>
+            On Windows, use
+            <a href="https://learn.microsoft.com/en-us/windows/wsl/install" rel="noopener">WSL</a>
+            with Windows Terminal so you have a real Linux environment.
+          </p>
+          <h3>Editor</h3>
+          <p>
+            Install <a href="https://code.visualstudio.com/" rel="noopener">VS Code</a>
+            and add the <b>Remote &mdash; SSH</b> extension. This lets you edit
+            files living on OSCER or lxplus directly from your laptop, with
+            full syntax highlighting and search &mdash; much nicer than editing
+            over a terminal editor for large projects. (That said, learn enough
+            <code>vim</code> to make quick edits on any machine.)
+          </p>
+          <h3>Git</h3>
+          <p>
+            All of our code lives in git repositories on
+            <a href="https://github.com/" rel="noopener">GitHub</a> and
+            <a href="https://gitlab.cern.ch/" rel="noopener">CERN GitLab</a>.
+            Configure your identity once per machine:
+          </p>
+          <pre><code>git config --global user.name  "Your Name"
+git config --global user.email "you@ou.edu"</code></pre>
+          <p>
+            Generate an SSH key (<code>ssh-keygen -t ed25519</code>) and add
+            the public key (<code>~/.ssh/id_ed25519.pub</code>) to both GitHub
+            and CERN GitLab so you can push without typing passwords.
+          </p>
+          <h3>Learning resources</h3>
+          <p>
+            The <a href="https://hepsoftwarefoundation.org/training/curriculum.html" rel="noopener">HSF
+            Training Center</a> has excellent self-paced material on the shell,
+            git, Python, and the rest of the HEP software toolkit. If you are
+            new to any of these, start there.
+          </p>
+        </section>
 
-      <section class="section">
-        <h2>The ouhep partition</h2>
-        <div class="section__body">
+        <section>
+          <h2>OSCER account</h2>
+          <p>
+            Our group computes on OSCER, the OU Supercomputing Center for
+            Education &amp; Research. Steps to get an account:
+          </p>
+          <ol>
+            <li>Complete the <a href="https://ousurvey.qualtrics.com/jfe/form/SV_exMG0fbmXp1YWrz" rel="noopener">New Account Request Form</a>.</li>
+            <li>If approved, you will receive an email when your account is created.</li>
+            <li>Log in with your initial password and <a href="https://www.ou.edu/oscer/getting-started/change-password.html/#change_password" rel="noopener">change it</a> IMMEDIATELY if prompted (or manually if not prompted).</li>
+          </ol>
+          <h3>Logging in</h3>
+          <p>Once your account is active, connect with:</p>
+          <pre><code>ssh -XY [username]@sooner.oscer.ou.edu</code></pre>
+          <p>
+            To save typing, add an entry to <code>~/.ssh/config</code> on your
+            laptop:
+          </p>
+          <pre><code>Host sooner
+    HostName sooner.oscer.ou.edu
+    User [username]
+    ForwardX11 yes
+    ForwardX11Trusted yes</code></pre>
+          <p>after which <code>ssh sooner</code> is all you need.</p>
+        </section>
+
+        <section>
+          <h2>The ouhep partition</h2>
           <p>
             <!-- Stub: partition details, example sbatch header -->
             The group has a dedicated Slurm partition, <code>ouhep</code>.
             Details on requesting it in your jobs will be posted here.
           </p>
-        </div>
-      </section>
+        </section>
 
-      <section class="section">
-        <h2>Requesting a node on Sooner</h2>
-        <div class="section__body">
+        <section>
+          <h2>Requesting a node on Sooner</h2>
           <p>
             <!-- Stub: interactive job / salloc instructions -->
             Instructions for requesting an interactive node on Sooner will be
             posted here.
           </p>
-        </div>
-      </section>
+        </section>
 
-      <section class="section">
-        <h2>Setting up Athena</h2>
-        <div class="section__body">
+        <section>
+          <h2>Setting up Athena</h2>
           <p>
             <!-- Stub: cvmfs setup, asetup examples, release recommendations -->
             Instructions for setting up the ATLAS Athena software environment
             will be posted here. In the meantime, see the
             <a href="https://atlas-software.docs.cern.ch/analysis/analysis_tutorial/" rel="noopener">ATLAS software tutorial</a>.
           </p>
-        </div>
-      </section>
+        </section>
 
-      <section class="section">
-        <h2>Storage: OURDisk</h2>
-        <div class="section__body">
+        <section>
+          <h2>Storage: OURDisk</h2>
           <p>
-            <!-- Stub: OURDisk partition location and usage guidance -->
-            The group's OURDisk partition location and guidance on organizing
-            your data will be posted here.
+            The group's OURDisk partition lives at:
           </p>
-        </div>
-      </section>
+          <pre><code>/ourdisk/hpc/ouhep/</code></pre>
+          <p>
+            We have a shared quota of 93&nbsp;TB. Please be mindful not to
+            fill it up &mdash; clean up datasets you no longer need, and check
+            with the group before copying in anything large.
+          </p>
+        </section>
+      </div>
     </div>
   </main>
 
