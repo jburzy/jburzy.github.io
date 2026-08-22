@@ -1041,6 +1041,18 @@ cds-accordion {
 
 /* ---------- Meetings page (wrapped indicomb output) ---------- */
 
+.page-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.page-links a {
+  white-space: nowrap;
+}
+
 .meetings-embed {
   max-width: 60rem;
 }

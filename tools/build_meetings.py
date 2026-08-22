@@ -27,7 +27,7 @@ TEMPLATE = """<!doctype html>
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css">
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/mono.css">
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css">
-  <link rel="stylesheet" href="/css/site.css?v=5">
+  <link rel="stylesheet" href="/css/site.css?v=6">
 </head>
 <body class="cds-theme-zone-white">
   <script>
@@ -75,9 +75,9 @@ TEMPLATE = """<!doctype html>
     <div class="container">
       <div class="page-head">
         <h1 class="page-title">Group Meetings</h1>
-        <p class="page-subtitle">
+        <p class="page-links">
           <a href="https://indico.cern.ch/category/704/" rel="noopener">Burzynski Group Meeting on Indico</a>
-          &nbsp;&middot;&nbsp; <a href="/meetings.ics">Calendar (.ics)</a>
+          <a href="/meetings.ics">Subscribe to calendar (.ics)</a>
         </p>
       </div>
 
