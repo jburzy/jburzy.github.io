@@ -571,11 +571,11 @@ figure.section__rail-figure {
   }
 
   .logo-row--column a img {
-    height: 6.5rem;
+    height: 8.5rem;
   }
 
   .logo-row--column a:nth-child(3) img {
-    height: 9rem;
+    height: 12rem;
   }
 }
 
