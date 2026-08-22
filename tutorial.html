@@ -77,6 +77,7 @@
         <cds-tab id="tab-basics" value="basics" target="panel-basics">Basics</cds-tab>
         <cds-tab id="tab-oscer" value="oscer" target="panel-oscer">OSCER</cds-tab>
         <cds-tab id="tab-athena" value="athena" target="panel-athena">ATLAS</cds-tab>
+        <cds-tab id="tab-analysis" value="analysis" target="panel-analysis">Analysis</cds-tab>
       </cds-tabs>
 
       <div class="doc doc--tabs">
@@ -287,6 +288,77 @@ source x86_64-*/setup.sh</code></pre>
             and the <a href="https://atlas-software.docs.cern.ch/athena/git/" rel="noopener">ATLAS git workflow tutorial</a>.
           </p>
         </section>
+
+        <div id="panel-analysis" role="tabpanel" aria-labelledby="tab-analysis" hidden>
+        <section>
+          <h2>Python environments with mamba</h2>
+          <p>
+            For analysis work, manage Python with
+            <a href="https://mamba.readthedocs.io/" rel="noopener">mamba</a>,
+            a fast drop-in replacement for conda. The easiest way to get it is
+            <a href="https://github.com/conda-forge/miniforge" rel="noopener">Miniforge</a>,
+            which ships mamba preconfigured to use the community
+            <code>conda-forge</code> package channel:
+          </p>
+          <pre><code>curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh</code></pre>
+          <p>
+            Restart your shell after installing. Then create one environment
+            per project &mdash; never install packages into the base
+            environment:
+          </p>
+          <pre><code>mamba create -n myanalysis python=3.12
+mamba activate myanalysis</code></pre>
+          <p>
+            Environments keep each project's dependencies isolated and
+            reproducible. If an analysis breaks after an update, you can
+            always rebuild the environment from scratch without touching
+            anything else.
+          </p>
+        </section>
+
+        <section>
+          <h2>HEP data analysis: the Scikit-HEP stack</h2>
+          <p>
+            For ntuple-level analysis we recommend the
+            <a href="https://scikit-hep.org/" rel="noopener">Scikit-HEP</a>
+            ecosystem: modern, columnar Python analysis that plays well with
+            the broader scientific Python world (NumPy, matplotlib, machine
+            learning frameworks) &mdash; no compiled ROOT macros required.
+            The core pieces:
+          </p>
+          <ul>
+            <li><a href="https://uproot.readthedocs.io/" rel="noopener"><code>uproot</code></a> &mdash; reads and writes ROOT files directly into arrays, with no ROOT installation needed</li>
+            <li><a href="https://awkward-array.org/" rel="noopener"><code>awkward</code></a> &mdash; NumPy-style operations on jagged arrays (variable-length collections like jets per event)</li>
+            <li><a href="https://hist.readthedocs.io/" rel="noopener"><code>hist</code></a> &mdash; histograms with a clean API for filling, slicing, and projecting</li>
+            <li><a href="https://mplhep.readthedocs.io/" rel="noopener"><code>mplhep</code></a> &mdash; matplotlib styles and helpers for publication-quality HEP plots (including the ATLAS style)</li>
+            <li><a href="https://vector.readthedocs.io/" rel="noopener"><code>vector</code></a> &mdash; Lorentz vectors and kinematics on arrays</li>
+          </ul>
+          <p>Install them into your environment from conda-forge:</p>
+          <pre><code>mamba install uproot awkward hist mplhep vector jupyterlab</code></pre>
+          <p>A minimal analysis looks like:</p>
+          <pre><code>import uproot
+import awkward as ak
+import hist
+import mplhep as hep
+import matplotlib.pyplot as plt
+
+tree = uproot.open("ntuple.root")["tree"]
+jet_pt = tree["jet_pt"].array() / 1000.0  # MeV to GeV
+
+h = hist.Hist.new.Reg(50, 0, 500, label="Jet $p_{T}$ [GeV]").Double()
+h.fill(ak.flatten(jet_pt))
+
+hep.style.use(hep.style.ATLAS)
+h.plot()
+plt.savefig("jet_pt.pdf")</code></pre>
+          <p>
+            The <a href="https://hsf-training.github.io/hsf-training-scikit-hep-webpage/" rel="noopener">HSF
+            Scikit-HEP training module</a> is a good hands-on introduction to
+            the whole stack.
+          </p>
+        </section>
+        </div>
       </div>
     </div>
   </main>
