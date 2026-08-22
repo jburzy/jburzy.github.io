@@ -62,6 +62,8 @@ TEMPLATE = """<!doctype html>
         <a href="/research.html">Research</a>
         <a href="/teaching.html">Teaching</a>
         <a href="/news.html">News</a>
+        <a href="/meetings.html" aria-current="page">Meetings</a>
+        <a href="/tutorial.html">Tutorial</a>
         <a href="/links.html">Links</a>
       </nav>
       <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
