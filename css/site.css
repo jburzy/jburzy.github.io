@@ -662,6 +662,10 @@ figure.section__rail-figure {
   font-style: italic;
 }
 
+.member-meetings {
+  margin: 2rem 0 0;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
