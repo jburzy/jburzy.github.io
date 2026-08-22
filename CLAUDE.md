@@ -75,6 +75,8 @@ variants. News items: newest first, one `<li>` per item in the year's
 - **Voice**: research/project text uses "We"/"Our group". The "Join us"
   blurb and "I am recruiting!" notes deliberately keep first person — do
   not change them.
+- Page titles: home is "Burzynski Lab", subpages "Page — Burzynski Lab"
+  (Google branding choice; the Person JSON-LD keeps the personal name).
 - No semicolons in prose (periods instead). Fine in code.
 - "I am", not "I'm".
 - PDFs open in a new tab (`target="_blank" rel="noopener"`).
