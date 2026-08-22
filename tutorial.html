@@ -161,19 +161,79 @@ git config --global user.email "you@ou.edu"</code></pre>
         <section>
           <h2>Requesting a node on Sooner</h2>
           <p>
-            <!-- Stub: interactive job / salloc instructions -->
-            Instructions for requesting an interactive node on Sooner will be
-            posted here.
+            <b>Never run real work on the login nodes</b> &mdash; they are
+            shared by everyone and only meant for editing files and submitting
+            jobs. Always run your code on an interactive node. To request one:
+          </p>
+          <pre><code>srun -p sooner_test --container=el9hw --pty $SHELL</code></pre>
+          <p>
+            This drops you into a shell on a compute node inside an EL9
+            container, which is what ATLAS software expects.
+          </p>
+          <h3>GPU access</h3>
+          <p>
+            For GPU work (e.g. machine learning training), request a GPU node
+            with:
+          </p>
+          <pre><code>srun -p ouheptmp --container=el9hw --gres=gpu:1 --ntasks=1 --cpus-per-task=16 --mem=40G --pty $SHELL</code></pre>
+          <p>
+            Check what you were allocated with <code>nvidia-smi</code> once
+            the shell opens.
           </p>
         </section>
 
         <section>
           <h2>Setting up Athena</h2>
           <p>
-            <!-- Stub: cvmfs setup, asetup examples, release recommendations -->
-            Instructions for setting up the ATLAS Athena software environment
-            will be posted here. In the meantime, see the
-            <a href="https://atlas-software.docs.cern.ch/analysis/analysis_tutorial/" rel="noopener">ATLAS software tutorial</a>.
+            ATLAS software is distributed via CVMFS, which is mounted on the
+            OSCER nodes. First, add this to your <code>~/.bashrc</code>:
+          </p>
+          <pre><code>export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
+alias setupATLAS='source $ATLAS_LOCAL_ROOT_BASE/user/atlasLocalSetup.sh'</code></pre>
+          <p>
+            Then, on an interactive node (see above), initialize the ATLAS
+            environment and set up an Athena release:
+          </p>
+          <pre><code>setupATLAS
+asetup Athena,main,latest</code></pre>
+          <p>
+            Use <code>Athena,main,latest</code> for development against the
+            main branch; for analysis you will usually pin a specific release
+            (e.g. <code>asetup Athena,25.0.25</code>) so results are
+            reproducible.
+          </p>
+          <h3>Working with the Athena repository</h3>
+          <p>
+            Athena development uses a sparse checkout: you check out only the
+            packages you are changing, and build them against the release.
+            First <a href="https://gitlab.cern.ch/atlas/athena/-/forks/new" rel="noopener">fork
+            the athena repository</a> on CERN GitLab (once), then:
+          </p>
+          <pre><code>lsetup git
+git atlas init-workdir ssh://git@gitlab.cern.ch:7999/[username]/athena.git
+cd athena
+git atlas addpkg MyPackage
+git checkout -b main-my-topic upstream/main --no-track</code></pre>
+          <p>
+            where <code>MyPackage</code> is the package you want to modify
+            (add as many as you need with further <code>git atlas addpkg</code>
+            calls). Build the checked-out packages in a separate build
+            directory:
+          </p>
+          <pre><code>mkdir ../build &amp;&amp; cd ../build
+cmake ../athena/Projects/WorkDir
+make -j8
+source x86_64-*/setup.sh</code></pre>
+          <p>
+            After sourcing the setup script, your locally built packages
+            shadow the ones in the release. When your changes are ready,
+            push your branch to your fork and open a merge request to
+            <code>atlas/athena</code>.
+          </p>
+          <p>
+            For a full walkthrough, see the
+            <a href="https://atlas-software.docs.cern.ch/analysis/analysis_tutorial/" rel="noopener">ATLAS software tutorial</a>
+            and the <a href="https://atlas-software.docs.cern.ch/athena/git/" rel="noopener">ATLAS git workflow tutorial</a>.
           </p>
         </section>
 
