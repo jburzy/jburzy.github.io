@@ -75,11 +75,8 @@
       <noscript><style>.doc--tabs section[hidden]{display:block}cds-tabs{display:none}</style></noscript>
       <cds-tabs value="basics" class="doc-tabs">
         <cds-tab id="tab-basics" value="basics" target="panel-basics">Basics</cds-tab>
-        <cds-tab id="tab-oscer" value="oscer" target="panel-oscer">OSCER account</cds-tab>
-        <cds-tab id="tab-ouhep" value="ouhep" target="panel-ouhep">ouhep partition</cds-tab>
-        <cds-tab id="tab-nodes" value="nodes" target="panel-nodes">Interactive nodes</cds-tab>
+        <cds-tab id="tab-oscer" value="oscer" target="panel-oscer">OSCER</cds-tab>
         <cds-tab id="tab-athena" value="athena" target="panel-athena">Athena</cds-tab>
-        <cds-tab id="tab-storage" value="storage" target="panel-storage">Storage</cds-tab>
       </cds-tabs>
 
       <div class="doc doc--tabs">
@@ -136,7 +133,8 @@ git config --global user.email "you@ou.edu"</code></pre>
           </p>
         </section>
 
-        <section id="panel-oscer" role="tabpanel" aria-labelledby="tab-oscer" hidden>
+        <div id="panel-oscer" role="tabpanel" aria-labelledby="tab-oscer" hidden>
+        <section>
           <h2>OSCER account</h2>
           <p>
             Our group computes on OSCER, the OU Supercomputing Center for
@@ -162,7 +160,7 @@ git config --global user.email "you@ou.edu"</code></pre>
           <p>after which <code>ssh sooner</code> is all you need.</p>
         </section>
 
-        <section id="panel-ouhep" role="tabpanel" aria-labelledby="tab-ouhep" hidden>
+        <section>
           <h2>The ouhep partition</h2>
           <p>
             <!-- Stub: partition details, example sbatch header -->
@@ -171,7 +169,7 @@ git config --global user.email "you@ou.edu"</code></pre>
           </p>
         </section>
 
-        <section id="panel-nodes" role="tabpanel" aria-labelledby="tab-nodes" hidden>
+        <section>
           <h2>Requesting a node on Sooner</h2>
           <p>
             <b>Never run real work on the login nodes</b> &mdash; they are
@@ -194,6 +192,21 @@ git config --global user.email "you@ou.edu"</code></pre>
             the shell opens.
           </p>
         </section>
+
+
+        <section>
+          <h2>Storage: OURDisk</h2>
+          <p>
+            The group's OURDisk partition lives at:
+          </p>
+          <pre><code>/ourdisk/hpc/ouhep/</code></pre>
+          <p>
+            We have a shared quota of 93&nbsp;TB. Please be mindful not to
+            fill it up &mdash; clean up datasets you no longer need, and check
+            with the group before copying in anything large.
+          </p>
+        </section>
+        </div>
 
         <section id="panel-athena" role="tabpanel" aria-labelledby="tab-athena" hidden>
           <h2>Setting up Athena</h2>
@@ -247,19 +260,6 @@ source x86_64-*/setup.sh</code></pre>
             For a full walkthrough, see the
             <a href="https://atlas-software.docs.cern.ch/analysis/analysis_tutorial/" rel="noopener">ATLAS software tutorial</a>
             and the <a href="https://atlas-software.docs.cern.ch/athena/git/" rel="noopener">ATLAS git workflow tutorial</a>.
-          </p>
-        </section>
-
-        <section id="panel-storage" role="tabpanel" aria-labelledby="tab-storage" hidden>
-          <h2>Storage: OURDisk</h2>
-          <p>
-            The group's OURDisk partition lives at:
-          </p>
-          <pre><code>/ourdisk/hpc/ouhep/</code></pre>
-          <p>
-            We have a shared quota of 93&nbsp;TB. Please be mindful not to
-            fill it up &mdash; clean up datasets you no longer need, and check
-            with the group before copying in anything large.
           </p>
         </section>
       </div>
