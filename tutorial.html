@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css">
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/mono.css">
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css">
-  <link rel="stylesheet" href="/css/site.css?v=9">
+  <link rel="stylesheet" href="/css/site.css?v=10">
+  <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/tabs.min.js"></script>
 </head>
 <body class="cds-theme-zone-white">
   <script>
@@ -47,11 +48,11 @@
       <a class="site-header__name" href="/">Prof. Jackson Burzynski</a>
       <nav class="site-header__nav" aria-label="Site">
         <a href="/">Home</a>
-        <a href="/research.html">Research</a>
-        <a href="/teaching.html">Teaching</a>
-        <a href="/news.html">News</a>
+        <a href="/research.html">Research Overview</a>
         <a href="/meetings.html">Meetings</a>
         <a href="/tutorial.html" aria-current="page">Tutorial</a>
+        <a href="/teaching.html">Teaching</a>
+        <a href="/news.html">News</a>
         <a href="/links.html">Links</a>
       </nav>
       <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
@@ -71,8 +72,18 @@
         </p>
       </div>
 
-      <div class="doc">
-        <section>
+      <noscript><style>.doc--tabs section[hidden]{display:block}cds-tabs{display:none}</style></noscript>
+      <cds-tabs value="basics" class="doc-tabs">
+        <cds-tab id="tab-basics" value="basics" target="panel-basics">Basics</cds-tab>
+        <cds-tab id="tab-oscer" value="oscer" target="panel-oscer">OSCER account</cds-tab>
+        <cds-tab id="tab-ouhep" value="ouhep" target="panel-ouhep">ouhep partition</cds-tab>
+        <cds-tab id="tab-nodes" value="nodes" target="panel-nodes">Interactive nodes</cds-tab>
+        <cds-tab id="tab-athena" value="athena" target="panel-athena">Athena</cds-tab>
+        <cds-tab id="tab-storage" value="storage" target="panel-storage">Storage</cds-tab>
+      </cds-tabs>
+
+      <div class="doc doc--tabs">
+        <section id="panel-basics" role="tabpanel" aria-labelledby="tab-basics">
           <h2>Basics</h2>
           <p>
             Before touching a cluster, set up a comfortable local environment.
@@ -125,7 +136,7 @@ git config --global user.email "you@ou.edu"</code></pre>
           </p>
         </section>
 
-        <section>
+        <section id="panel-oscer" role="tabpanel" aria-labelledby="tab-oscer" hidden>
           <h2>OSCER account</h2>
           <p>
             Our group computes on OSCER, the OU Supercomputing Center for
@@ -151,7 +162,7 @@ git config --global user.email "you@ou.edu"</code></pre>
           <p>after which <code>ssh sooner</code> is all you need.</p>
         </section>
 
-        <section>
+        <section id="panel-ouhep" role="tabpanel" aria-labelledby="tab-ouhep" hidden>
           <h2>The ouhep partition</h2>
           <p>
             <!-- Stub: partition details, example sbatch header -->
@@ -160,7 +171,7 @@ git config --global user.email "you@ou.edu"</code></pre>
           </p>
         </section>
 
-        <section>
+        <section id="panel-nodes" role="tabpanel" aria-labelledby="tab-nodes" hidden>
           <h2>Requesting a node on Sooner</h2>
           <p>
             <b>Never run real work on the login nodes</b> &mdash; they are
@@ -184,7 +195,7 @@ git config --global user.email "you@ou.edu"</code></pre>
           </p>
         </section>
 
-        <section>
+        <section id="panel-athena" role="tabpanel" aria-labelledby="tab-athena" hidden>
           <h2>Setting up Athena</h2>
           <p>
             ATLAS software is distributed via CVMFS, which is mounted on the
@@ -239,7 +250,7 @@ source x86_64-*/setup.sh</code></pre>
           </p>
         </section>
 
-        <section>
+        <section id="panel-storage" role="tabpanel" aria-labelledby="tab-storage" hidden>
           <h2>Storage: OURDisk</h2>
           <p>
             The group's OURDisk partition lives at:
