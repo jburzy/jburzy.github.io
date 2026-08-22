@@ -106,6 +106,9 @@ def main():
     content = m.group(1)
     # drop indicomb's own calendar-export footer link (we render our own)
     content = re.sub(r"<br/><center><font size=\"2pt\"><a href=\"[^\"]*\.ics\">Calendar export</a></font></center>\n?", "", content)
+    # defensively drop the topbar and back-link if the raw file has them
+    content = re.sub(r"<table class=\"topbar\".*?</table>\n?", "", content, flags=re.S)
+    content = re.sub(r"<p><a href=\"https://jburzy\.github\.io/\">.*?</p>\n?", "", content)
     open(OUT, "w", encoding="utf-8").write(TEMPLATE.replace("__CONTENT__", content))
     print("wrote", OUT)
 
