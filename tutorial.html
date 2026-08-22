@@ -76,8 +76,8 @@
       <cds-tabs value="basics" class="doc-tabs">
         <cds-tab id="tab-basics" value="basics" target="panel-basics">Basics</cds-tab>
         <cds-tab id="tab-oscer" value="oscer" target="panel-oscer">OSCER</cds-tab>
+        <cds-tab id="tab-analysis" value="analysis" target="panel-analysis">Python</cds-tab>
         <cds-tab id="tab-athena" value="athena" target="panel-athena">ATLAS</cds-tab>
-        <cds-tab id="tab-analysis" value="analysis" target="panel-analysis">Analysis</cds-tab>
       </cds-tabs>
 
       <div class="doc doc--tabs">
@@ -146,6 +146,12 @@ git config --global user.email "you@ou.edu"</code></pre>
             <li>If approved, you will receive an email when your account is created.</li>
             <li>Log in with your initial password and <a href="https://www.ou.edu/oscer/getting-started/change-password.html/#change_password" rel="noopener">change it</a> IMMEDIATELY if prompted (or manually if not prompted).</li>
           </ol>
+          <p>
+            The <a href="https://www.ou.edu/oscer/getting-started" rel="noopener">OSCER
+            documentation</a> is the reference for anything not covered on
+            this page &mdash; hardware details, software modules, and support
+            contacts.
+          </p>
           <h3>Logging in</h3>
           <p>Once your account is active, connect with:</p>
           <pre><code>ssh -XY [username]@sooner.oscer.ou.edu</code></pre>
@@ -295,27 +301,51 @@ source x86_64-*/setup.sh</code></pre>
         <section>
           <h2>Python environments with mamba</h2>
           <p>
-            For analysis work, manage Python with
+            Manage Python with
             <a href="https://mamba.readthedocs.io/" rel="noopener">mamba</a>,
-            a fast drop-in replacement for conda. The easiest way to get it is
-            <a href="https://github.com/conda-forge/miniforge" rel="noopener">Miniforge</a>,
-            which ships mamba preconfigured to use the community
-            <code>conda-forge</code> package channel:
+            a fast drop-in replacement for conda. On OSCER, mamba is already
+            available as a module &mdash; do not install your own. Load it
+            with:
           </p>
-          <pre><code>curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-bash Miniforge3-$(uname)-$(uname -m).sh</code></pre>
+          <pre><code>module load Mamba</code></pre>
           <p>
-            Restart your shell after installing. Then create one environment
-            per project &mdash; never install packages into the base
-            environment:
+            (The first time, run <code>mamba init bash</code> and log out and
+            back in so environment activation works.) Then create one
+            environment per project &mdash; never install packages into the
+            base environment:
           </p>
           <pre><code>mamba create -n myanalysis python=3.12
 mamba activate myanalysis</code></pre>
           <p>
             Environments keep each project's dependencies isolated and
-            reproducible. If an analysis breaks after an update, you can
-            always rebuild the environment from scratch without touching
-            anything else.
+            reproducible. Note that environments can get large &mdash; if your
+            home quota fills up, create them on OURDisk instead with
+            <code>mamba create -p /ourdisk/hpc/ouhep/[username]/envs/myanalysis</code>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Machine learning on OSCER</h2>
+          <p>
+            For machine learning work, create a dedicated environment and
+            install <a href="https://pytorch.org/" rel="noopener">PyTorch</a>
+            and <a href="https://lightning.ai/docs/pytorch/stable/" rel="noopener">Lightning</a>
+            into it (the PyTorch wheels bundle CUDA, so the same install works
+            on CPU and GPU nodes):
+          </p>
+          <pre><code>mamba create -n ml python=3.12
+mamba activate ml
+pip install torch lightning</code></pre>
+          <p>
+            Then request a GPU node (see the OSCER tab) and check that the GPU
+            is visible:
+          </p>
+          <pre><code>python -c "import torch; print(torch.cuda.is_available())"</code></pre>
+          <p>
+            Do the installation itself from an interactive node rather than a
+            login node &mdash; the downloads are large. Add whatever else your
+            project needs (<code>numpy</code>, <code>matplotlib</code>,
+            <code>jupyterlab</code>, &hellip;) to the same environment.
           </p>
         </section>
 
