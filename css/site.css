@@ -1002,8 +1002,8 @@ cds-accordion {
 }
 
 .tag--featured {
-  background: #ffd6e8;
-  color: #9f1853;
+  background: #bae6ff;
+  color: #00539a;
 }
 
 .cds-theme-zone-g100 .tag--conference {
@@ -1022,8 +1022,8 @@ cds-accordion {
 }
 
 .cds-theme-zone-g100 .tag--featured {
-  background: #9f1853;
-  color: #ffd6e8;
+  background: #003a6d;
+  color: #82cfff;
 }
 
 .tag--seminar {
@@ -1032,8 +1032,8 @@ cds-accordion {
 }
 
 .tag--team {
-  background: #bae6ff;
-  color: #00539a;
+  background: #ffd6e8;
+  color: #9f1853;
 }
 
 .cds-theme-zone-g100 .tag--seminar {
@@ -1042,8 +1042,8 @@ cds-accordion {
 }
 
 .cds-theme-zone-g100 .tag--team {
-  background: #003a6d;
-  color: #82cfff;
+  background: #9f1853;
+  color: #ffd6e8;
 }
 
 /* ---------- Media figure ---------- */
