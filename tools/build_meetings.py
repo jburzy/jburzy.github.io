@@ -1,11 +1,25 @@
-<!doctype html>
+#!/usr/bin/env python3
+"""Wrap indicomb output in the site chrome.
+
+Reads meetings-raw.html (produced by indicomb --noTopbar) and writes
+meetings.html styled like the rest of the site. meetings-raw.html is kept
+in the repo so indicomb's caching keeps working between runs.
+"""
+import re
+import sys
+
+RAW = "meetings-raw.html"
+OUT = "meetings.html"
+
+TEMPLATE = """<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>News — Jackson Burzynski</title>
-  <meta name="description" content="News and updates from Jackson Burzynski.">
+  <title>Group Meetings — Jackson Burzynski</title>
+  <meta name="description" content="Burzynski group meetings on Indico.">
+  <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -14,12 +28,9 @@
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/mono.css">
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css">
   <link rel="stylesheet" href="/css/site.css?v=5">
-  <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/accordion.min.js"></script>
 </head>
 <body class="cds-theme-zone-white">
   <script>
-    /* Theme: follow the browser/system preference, with a manual override
-       stored in localStorage (set by the header toggle) */
     (function () {
       var m = window.matchMedia('(prefers-color-scheme: dark)');
       function current() {
@@ -50,7 +61,7 @@
         <a href="/">Home</a>
         <a href="/research.html">Research</a>
         <a href="/teaching.html">Teaching</a>
-        <a href="/news.html" aria-current="page">News</a>
+        <a href="/news.html">News</a>
         <a href="/links.html">Links</a>
       </nav>
       <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
@@ -63,69 +74,16 @@
   <main id="main">
     <div class="container">
       <div class="page-head">
-        <h1 class="page-title">News</h1>
+        <h1 class="page-title">Group Meetings</h1>
+        <p class="page-subtitle">
+          <a href="https://indico.cern.ch/category/704/" rel="noopener">Burzynski Group Meeting on Indico</a>
+          &nbsp;&middot;&nbsp; <a href="/meetings.ics">Calendar (.ics)</a>
+        </p>
       </div>
 
-      <cds-accordion>
-        <cds-accordion-item open title="2026">
-          <ul class="lecture-list">
-            <!-- News items go here, one <li> each, newest first.
-                 Optional label styles: tag--conference, tag--publication,
-                 tag--award, tag--featured. Example:
-            <li>
-              <span class="label">Aug 2026</span>
-              <span>
-                <span class="tag tag--award">Award</span>
-                Started as Assistant Professor at the University of Oklahoma!
-              </span>
-            </li>
-            -->
-            <li>
-              <span class="label">Jul 30, 2026</span>
-              <span>
-                <span class="tag tag--conference">Conference</span>
-                I presented
-                <a href="https://indico.cern.ch/event/1522800/contributions/6986833/" rel="noopener"><i>Track and Vertex Reconstruction for the ATLAS Inner Detector</i></a>
-                at ICHEP 2026 in Natal, Brazil.
-              </span>
-            </li>
-            <li>
-              <span class="label">Jun 15, 2026</span>
-              <span>
-                <span class="tag tag--featured">Featured</span>
-                Timothy Mathew joined the group as a postdoctoral researcher.
-                Welcome, Timothy!
-              </span>
-            </li>
-            <li>
-              <span class="label">May 22, 2026</span>
-              <span>
-                <span class="tag tag--featured">Featured</span>
-                I gave the Fermilab Wine and Cheese seminar:
-                <a href="https://indico.fnal.gov/event/73447/" rel="noopener"><i>Recent searches for Beyond Standard Model Phenomena with the ATLAS Experiment</i></a>.
-              </span>
-            </li>
-            <li>
-              <span class="label">Apr 23, 2026</span>
-              <span>
-                <span class="tag tag--conference">Conference</span>
-                I presented
-                <a href="https://indico.cern.ch/event/1577742/contributions/6930412/" rel="noopener"><i>Large Impact Parameter Track Reconstruction in ATLAS Using ACTS</i></a>
-                at the ACTS workshop at Nikhef.
-              </span>
-            </li>
-            <li>
-              <span class="label">Jan 2, 2026</span>
-              <span>
-                <span class="tag tag--featured">Featured</span>
-                I started as an Assistant Professor at the University of
-                Oklahoma!
-              </span>
-            </li>
-          </ul>
-        </cds-accordion-item>
-        <!-- Add more years as new <cds-accordion-item title="..."> entries -->
-      </cds-accordion>
+      <div class="meetings-embed">
+__CONTENT__
+      </div>
     </div>
   </main>
 
@@ -137,3 +95,20 @@
   </footer>
 </body>
 </html>
+"""
+
+
+def main():
+    raw = open(RAW, encoding="utf-8", errors="replace").read()
+    m = re.search(r"<body>(.*)</body>", raw, re.S)
+    if not m:
+        sys.exit("could not find <body> in " + RAW)
+    content = m.group(1)
+    # drop indicomb's own calendar-export footer link (we render our own)
+    content = re.sub(r"<br/><center><font size=\"2pt\"><a href=\"[^\"]*\.ics\">Calendar export</a></font></center>\n?", "", content)
+    open(OUT, "w", encoding="utf-8").write(TEMPLATE.replace("__CONTENT__", content))
+    print("wrote", OUT)
+
+
+if __name__ == "__main__":
+    main()

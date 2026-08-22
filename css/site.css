@@ -1039,6 +1039,51 @@ cds-accordion {
   color: var(--cds-text-secondary, #525252);
 }
 
+/* ---------- Meetings page (wrapped indicomb output) ---------- */
+
+.meetings-embed {
+  max-width: 60rem;
+}
+
+.meetings-embed h5 {
+  margin: 0 0 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--cds-text-secondary, #525252);
+}
+
+.meetings-embed center {
+  text-align: left;
+}
+
+.meetings-embed > a,
+.meetings-embed b > a {
+  font-size: 1.125rem;
+}
+
+.meetings-embed ul {
+  margin: 0.25rem 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.meetings-embed ul ul {
+  margin-bottom: 0.25rem;
+}
+
+.meetings-embed li {
+  margin: 0.25rem 0;
+}
+
+.meetings-embed hr {
+  border: none;
+  border-top: 1px solid var(--cds-border-subtle-00, #e0e0e0);
+  margin: 2rem 0;
+}
+
+.meetings-embed font {
+  color: var(--cds-text-secondary, #525252);
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
