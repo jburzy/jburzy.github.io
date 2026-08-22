@@ -1026,6 +1026,26 @@ cds-accordion {
   color: #ffd6e8;
 }
 
+.tag--seminar {
+  background: #9ef0f0;
+  color: #004144;
+}
+
+.tag--team {
+  background: #bae6ff;
+  color: #00539a;
+}
+
+.cds-theme-zone-g100 .tag--seminar {
+  background: #004144;
+  color: #3ddbd9;
+}
+
+.cds-theme-zone-g100 .tag--team {
+  background: #003a6d;
+  color: #82cfff;
+}
+
 /* ---------- Media figure ---------- */
 
 .media-figure {
