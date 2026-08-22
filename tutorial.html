@@ -213,7 +213,7 @@ scancel [jobid]        # kill a job
 sacct -j [jobid]       # accounting info for a finished job</code></pre>
           <p>
             <code>%x</code> and <code>%j</code> in the output path expand to
-            the job name and job ID; make sure the <code>logs/</code>
+            the job name and job ID. Make sure the <code>logs/</code>
             directory exists before submitting. Request only the resources you
             need &mdash; smaller jobs schedule faster.
           </p>
@@ -249,7 +249,7 @@ alias setupATLAS='source $ATLAS_LOCAL_ROOT_BASE/user/atlasLocalSetup.sh'</code><
 asetup Athena,main,latest</code></pre>
           <p>
             Use <code>Athena,main,latest</code> for development against the
-            main branch; for analysis you will usually pin a specific release
+            main branch. For analysis, you will usually pin a specific release
             (e.g. <code>asetup Athena,25.0.25</code>) so results are
             reproducible.
           </p>
