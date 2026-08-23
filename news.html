@@ -40,6 +40,15 @@
           apply();
         }
       });
+
+      /* Narrow screens: keep the current page's nav item in view */
+      document.addEventListener('DOMContentLoaded', function () {
+        var nav = document.querySelector('.site-header__nav');
+        var cur = nav && nav.querySelector('[aria-current="page"]');
+        if (!nav || !cur) return;
+        var offset = cur.offsetLeft - (nav.clientWidth - cur.offsetWidth) / 2;
+        if (offset > 0) nav.scrollLeft = offset;
+      });
     })();
   </script>
   <a class="skip-link" href="#main">Skip to main content</a>
