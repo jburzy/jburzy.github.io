@@ -72,9 +72,10 @@ variants. News items: newest first, one `<li>` per item in the year's
 
 ## Content conventions
 
-- **Voice**: research/project text uses "We"/"Our group". The "Join us"
-  blurb and "I am recruiting!" notes deliberately keep first person — do
-  not change them.
+- **Voice**: research/project text uses "We"/"Our group". News items are
+  third person, first name only ("Jackson presented…", "The group's…").
+  The "Join us" blurb and "I am recruiting!" notes deliberately keep first
+  person — do not change them.
 - Page titles: home is "Burzynski Lab", subpages "Page — Burzynski Lab"
   (Google branding choice; the Person JSON-LD keeps the personal name).
 - No semicolons in prose (periods instead). Fine in code.
