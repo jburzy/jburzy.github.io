@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Potential Research Projects — Burzynski Lab</title>
+  <meta name="description" content="Potential research projects for students in the Burzynski Lab at the University of Oklahoma.">
+  <link rel="canonical" href="https://jacksonburzynski.web.cern.ch/projects.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://1.www.s81c.com" crossorigin>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css">
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/mono.css">
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css">
+  <link rel="stylesheet" href="/css/site.css?v=9">
+</head>
+<body class="cds-theme-zone-white">
+  <script>
+    /* Theme: follow the browser/system preference, with a manual override
+       stored in localStorage (set by the header toggle) */
+    (function () {
+      var m = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() {
+        var stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (e) {}
+        return stored || (m.matches ? 'dark' : 'light');
+      }
+      function apply() {
+        document.body.className = current() === 'dark' ? 'cds-theme-zone-g100' : 'cds-theme-zone-white';
+      }
+      apply();
+      m.addEventListener('change', apply);
+      document.addEventListener('click', function (e) {
+        if (e.target.closest && e.target.closest('.theme-toggle')) {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          try { localStorage.setItem('theme', next); } catch (e2) {}
+          apply();
+        }
+      });
+
+      /* Narrow screens: keep the current page's nav item in view */
+      document.addEventListener('DOMContentLoaded', function () {
+        var nav = document.querySelector('.site-header__nav');
+        var cur = nav && nav.querySelector('[aria-current="page"]');
+        if (!nav || !cur) return;
+        var offset = cur.offsetLeft - (nav.clientWidth - cur.offsetWidth) / 2;
+        if (offset > 0) nav.scrollLeft = offset;
+      });
+    })();
+  </script>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a class="site-header__name" href="/">Prof. Jackson Burzynski</a>
+      <nav class="site-header__nav" aria-label="Site">
+        <a href="/">Home</a>
+        <a href="/research.html">Research Overview</a>
+        <a href="/tutorial.html">Tutorial</a>
+        <a href="/meetings.html">Meetings</a>
+        <a href="/news.html">News</a>
+        <a href="/links.html">Links</a>
+        <a href="/teaching.html">Teaching</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+        <svg class="icon-moon" viewBox="0 0 32 32" aria-hidden="true"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194 11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016 13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555 1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38 1.015 1.015 0 0 0 14.98 3Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 12.005a4 4 0 1 1-4 4 4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6 6 6 0 0 0-6-6ZM5.394 6.813 6.81 5.399l3.505 3.506L8.9 10.319zM2 15.005h5v2H2zm3.394 10.193L8.9 21.692l1.414 1.414-3.505 3.506zM15 25.005h2v5h-2zm6.687-1.9 1.414-1.414 3.506 3.506-1.414 1.414zm3.313-8.1h5v2h-5zm-3.313-6.101 3.506-3.506 1.414 1.414-3.506 3.506zM15 2.005h2v5h-2z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-head">
+        <h1 class="page-title">Potential Research Projects</h1>
+        <p class="page-subtitle">
+          Projects available to students who want to work with our group.
+        </p>
+      </div>
+
+      <div class="research-intro">
+        <p>
+          Each project below is labelled with the level it suits best. PhD
+          students will generally work on two projects, usually one focused
+          on a search and one on reconstruction or software, so that they
+          finish with both a physics result and a technical specialty.
+          Capstone projects are scoped to a single question that can be
+          answered in a year.
+        </p>
+        <p>
+          If any of these interest you, or if you have an idea of your own,
+          please get in touch at
+          <a href="mailto:burzynski@ou.edu">burzynski@ou.edu</a>.
+        </p>
+      </div>
+
+      <div class="project-list">
+        <article class="project-card">
+          <h3>Search for quirks <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span> <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>Quirks are pairs of new particles bound by a strong force that never lets them separate, so they trace out oscillating, non-helical paths that standard tracking throws away. This project uses machine learning to reconstruct those trajectories and then searches for them in ATLAS Run 3 data.</p>
+          <ul class="proj-refs">
+            <li><a href="https://arxiv.org/abs/2410.00269" rel="noopener">Learning to Reconstruct Quirky Tracks (arXiv:2410.00269)</a></li>
+            <li><a href="https://arxiv.org/abs/2509.08878" rel="noopener">Finding Unexpected Non-Helical Tracks (arXiv:2509.08878)</a></li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Emerging jets in full Run 3 <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span> <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>Our first emerging jet search used only part of the Run 3 dataset. This project extends it to the full dataset and pushes the tagging further with transformer taggers and anomaly detection, so we are not limited to the models we thought to simulate.</p>
+          <ul class="proj-refs">
+            <li><a href="https://arxiv.org/abs/2505.02429" rel="noopener">ATLAS, Search for emerging jets in Run 3 (arXiv:2505.02429)</a></li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Dark shower phenomenology and model building <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>Dark sectors can shower and hadronize much like QCD does, and the resulting signatures depend strongly on parameters that are poorly constrained. This project maps out which experimental signatures dominate where in the parameter space, and looks for the corners nobody is covering.</p>
+        </article>
+        <article class="project-card">
+          <h3>Search for dark photons in full Run 3 <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span> <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>Dark photons are one of the simplest portals to a hidden sector, and long lifetimes leave displaced vertices in the ATLAS Inner Detector. This project carries out the search in the full Run 3 dataset.</p>
+        </article>
+        <article class="project-card">
+          <h3>Optimization of large radius tracking for Run 4 <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span></h3>
+          <p>Large radius tracking is what makes displaced signatures visible, and it has to survive the pileup and rate conditions of Run 4. This project retunes and optimizes the algorithm for the upgraded detector.</p>
+          <ul class="proj-refs">
+            <li><a href="https://arxiv.org/abs/2304.12867" rel="noopener">ATLAS, Performance of large impact parameter track reconstruction (arXiv:2304.12867)</a></li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Track reconstruction with machine learning for the HL-LHC <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span> <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>Classical tracking scales badly with pileup, so the HL-LHC needs something faster. This project develops transformer and graph based reconstruction, including work on efficiency, fake rates, and the displaced tracks that these models tend to miss.</p>
+          <ul class="proj-refs">
+            <li><a href="https://arxiv.org/abs/2411.07149" rel="noopener">Transformers for Charged Particle Track Reconstruction (arXiv:2411.07149)</a></li>
+            <li><a href="https://arxiv.org/abs/2606.17631" rel="noopener">Better Queries, Cheaper Attention (arXiv:2606.17631)</a></li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Muon collider track reconstruction with 4D tracking <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>A muon collider drowns its detector in beam induced background, and precise timing on each hit is one of the few handles that can cut through it. This project studies how 4D tracking recovers real tracks in that environment.</p>
+        </article>
+        <article class="project-card">
+          <h3>Trigger development for Run 4 <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span></h3>
+          <p>Anything the trigger does not record is lost forever, and long-lived particle signatures are exactly the ones standard triggers were not designed for. This project helps design the LLP trigger menu for Run 4.</p>
+        </article>
+        <article class="project-card">
+          <h3>Reinterpretation of ATLAS long-lived particle searches <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span> <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>Every search we publish constrains far more models than the ones it was designed for, but only if someone does the work. This project builds tools to recast our displaced vertex and emerging jet results onto new models using published efficiency maps and likelihoods.</p>
+        </article>
+        <article class="project-card">
+          <h3>A public benchmark for displaced tracking <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span> <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>There is no common dataset for testing displaced track reconstruction, so every group measures performance its own way. This project builds an open benchmark with simulated long-lived particle decays and a set of metrics that everyone can use.</p>
+          <ul class="proj-refs">
+            <li><a href="https://arxiv.org/abs/2304.12867" rel="noopener">ATLAS, Performance of large impact parameter track reconstruction (arXiv:2304.12867)</a></li>
+            <li><a href="https://arxiv.org/abs/2411.07149" rel="noopener">Transformers for Charged Particle Track Reconstruction (arXiv:2411.07149)</a></li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Displacement aware jet substructure observables <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span> <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>Machine learning taggers work well on dark showers but are hard to interpret. This project designs substructure observables built from track impact parameters and measures how much of the tagger performance simple, understandable variables can recover.</p>
+          <ul class="proj-refs">
+            <li><a href="https://arxiv.org/abs/2505.02429" rel="noopener">ATLAS, Search for emerging jets in Run 3 (arXiv:2505.02429)</a></li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Machine learning for beam induced background rejection at a muon collider <span class="proj-badge proj-badge--phd" title="Suitable for a PhD project"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 1 11l15 8 12-6.4V22h2V11ZM5.4 11 16 5.3 26.6 11 16 16.7Z"/><path d="M8 17.5v6.2c0 2.9 4 5.3 8 5.3s8-2.4 8-5.3v-6.2l-2 1.1v5.1c0 1.4-2.7 3.3-6 3.3s-6-1.9-6-3.3v-5.1Z"/></svg>PhD</span> <span class="proj-badge proj-badge--capstone" title="Suitable for an undergraduate capstone"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 22H6V6h20Z"/><path d="M10 10h12v2H10zm0 5h12v2H10zm0 5h8v2h-8z"/></svg>Capstone</span></h3>
+          <p>Beam induced background at a muon collider is overwhelming but also highly structured, which is exactly the kind of problem machine learning is good at. This project develops algorithms that separate real collision products from that background.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <span>© 2026 Jackson Burzynski</span>
+      <span><a href="mailto:burzynski@ou.edu">burzynski@ou.edu</a></span>
+    </div>
+  </footer>
+</body>
+</html>
