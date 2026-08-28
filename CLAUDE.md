@@ -116,8 +116,10 @@ variants. News items: newest first, one `<li>` per item in the year's
 - `teaching.html` — accordion per semester; PHYS-2203 (Fall 2026) with
   Canvas link, Syllabus and Lecture notes styled as `.lecture-list` rows.
 - `projects.html` — "Potential Research Projects": student project ideas
-  with PhD/Capstone badges and reference links. Linked from research.html
-  (Getting started section) but deliberately NOT in the nav.
+  with PhD/Capstone badges and reference links. DRAFT: currently unlinked,
+  noindex, and out of the sitemap while the text is being revised. To
+  publish: re-link from research.html's Getting started section, drop the
+  noindex meta, re-add to sitemap.xml. Never in the nav.
 - `news.html`, `links.html` — see conventions above.
 
 ## Assets
