@@ -115,6 +115,22 @@ variants. News items: newest first, one `<li>` per item in the year's
   `build_meetings.py`, not the output.
 - `teaching.html` — accordion per semester; PHYS-2203 (Fall 2026) with
   Canvas link, Syllabus and Lecture notes styled as `.lecture-list` rows.
+
+  **Recurring task — adding lecture notes** (the user asks every few
+  days, often just "add lecture N"):
+  1. Source PDFs live in iCloud:
+     `~/Library/Mobile Documents/com~apple~CloudDocs/Work/OU/PHYS-2203-001_Fall_2026/LectureNotes/LectureN/Lecture_Notes_MM-DD-YYYY.pdf`
+     (one folder per lecture, alongside .tex/.aux files).
+  2. Get the title from the PDF's first page: `qlmanage -t <pdf> -s 800
+     -o <scratchpad>` then Read the PNG (pdftoppm is not installed, so
+     the Read tool can't render PDF pages directly).
+  3. Copy to `assets/phys2203/lecture-notes-YYYY-MM-DD.pdf` (ISO date).
+  4. Append a `<li>` to the Lecture notes `.lecture-list`:
+     label `Lecture N · Mon D, YYYY`, link text = the PDF's exact title,
+     `target="_blank" rel="noopener"`.
+  5. Commit ("Add lecture N notes to PHYS-2203"), pull --rebase, push.
+  Do not publish a lecture the user hasn't supplied or has asked to hold
+  back (list entry AND PDF stay out of the repo until they say go).
 - `projects.html` — "Potential Research Projects": student project ideas
   with PhD/Capstone badges and reference links. DRAFT: currently unlinked,
   noindex, and out of the sitemap while the text is being revised. To
@@ -149,3 +165,34 @@ Email burzynski@ou.edu. Group: Timothy Mathew (postdoc, June 2026).
 GitHub org: burzynski-lab. Old React site source lives on the
 `origin/source` branch (CV there is stale — current CV synced from
 iCloud to `assets/jackson-burzynski-cv.pdf`).
+
+## Current state and open threads (as of Sep 23, 2026)
+
+Snapshot for a fresh session picking up this work:
+
+- CSS cache version: `?v=14` site-wide, `?v=15` on projects.html only.
+  Next CSS change bumps everything to the same new number.
+- Teaching: PHYS-2203 lecture notes posted through **Lecture 11
+  (Sep 21, Special Relativity)**. Lectures continue Mon/Wed/Fri —
+  expect more "add lecture N" requests (workflow above).
+- `projects.html` is still an unpublished draft (see Pages section for
+  the publish checklist). The user wants to revise the text first.
+  Several project entries have empty reference areas awaiting links.
+- Booking page: the user plans to set up a Google Calendar appointment
+  schedule for student meetings. When they supply the booking link, add
+  a "Book a meeting" element (suggested: Group members section of
+  research.html, plus links.html) styled as a Carbon button/link.
+- CERN mirror sync is always done by the user (lxplus needs their 2FA).
+  After any push, remind them the CERN page lags until they sync. A
+  standing offer to automate via acron was never taken up.
+- Tutorial: OSCER partition `ouheptmp` will eventually be renamed
+  `ouhep` — tutorial.html will need updating when that happens.
+- Missing content: UIUC and Michigan seminar talk links (research.html
+  Recent talks), and the Flavour Tagging / Dark Matter Roadmap talks
+  were removed pending links.
+- The `.tag--featured` (cyan) news tag exists but is currently unused,
+  reserved for headline items.
+- Session history note: Claude Code transcripts and the auto-memory
+  directory live under `~/.claude/projects/` on this machine and are
+  keyed by folder path, not Anthropic account — they survive an
+  account switch.
