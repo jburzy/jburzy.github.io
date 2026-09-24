@@ -253,6 +253,38 @@ sacct -j [jobid]       # accounting info for a finished job</code></pre>
             with the group before copying in anything large.
           </p>
         </section>
+
+        <section>
+          <h2>Claude Code on Sooner</h2>
+          <p>
+            <a href="https://code.claude.com/docs/en/overview" rel="noopener">Claude Code</a>
+            is an AI coding assistant that runs in the terminal. It is a
+            useful companion for analysis work on the cluster. The native
+            installer does not need root access and installs into your home
+            directory:
+          </p>
+          <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+          <p>
+            The binary lands in <code>~/.local/bin</code>. If
+            <code>claude</code> is not found afterwards, add this to your
+            <code>~/.bashrc</code>:
+          </p>
+          <pre><code>export PATH="$HOME/.local/bin:$PATH"</code></pre>
+          <p>
+            The first time you run <code>claude</code> it will ask you to log
+            in. Since the cluster has no browser, it prints a URL. Open that
+            URL in the browser on your laptop, authorize, and paste the code
+            back into the terminal. The login is stored in
+            <code>~/.claude</code> so you only do this once.
+          </p>
+          <p>
+            Launch it from the directory you are working in so it can see
+            your code. Light use from a login node is fine, but if you ask it
+            to compile code or run anything heavy, do so from an interactive
+            node like any other work. Update it occasionally with:
+          </p>
+          <pre><code>claude update</code></pre>
+        </section>
         </div>
 
         <section id="panel-athena" role="tabpanel" aria-labelledby="tab-athena" hidden>
