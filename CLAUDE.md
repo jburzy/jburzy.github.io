@@ -172,8 +172,8 @@ Snapshot for a fresh session picking up this work:
 
 - CSS cache version: `?v=14` site-wide, `?v=15` on projects.html only.
   Next CSS change bumps everything to the same new number.
-- Teaching: PHYS-2203 lecture notes posted through **Lecture 11
-  (Sep 21, Special Relativity)**. Lectures continue Mon/Wed/Fri —
+- Teaching: PHYS-2203 lecture notes posted through **Lecture 30
+  (Nov 6, Stationary States and the Infinite Square Well)**. Lectures continue Mon/Wed/Fri —
   expect more "add lecture N" requests (workflow above).
 - `projects.html` is still an unpublished draft (see Pages section for
   the publish checklist). The user wants to revise the text first.
