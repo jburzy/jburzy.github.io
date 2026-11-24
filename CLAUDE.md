@@ -101,7 +101,7 @@ variants. News items: newest first, one `<li>` per item in the year's
   rail, icon link row (inline SVG brand icons), Prospective students.
 - `research.html` — "Burzynski Lab": centered lede + CERN/ATLAS/IMCC logo
   column (theme-swapped via `.logo--light`/`.logo--dark` pairs), Group
-  members (role columns, Friday 4pm Nielsen 365 meeting note), Current
+  members (role columns, Wednesday 1pm Nielsen 265 meeting note), Current
   Projects (4 SVG cards), Getting started teaser, Recent talks,
   Selected publications, Join us.
 - `tutorial.html` — "Getting Started", Carbon tabs: Basics / OSCER /
