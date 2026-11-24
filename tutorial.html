@@ -115,11 +115,14 @@
           <h3>Editor</h3>
           <p>
             Install <a href="https://code.visualstudio.com/" rel="noopener">VS Code</a>
-            and add the <b>Remote &mdash; SSH</b> extension. This lets you edit
-            files living on OSCER or lxplus directly from your laptop, with
-            full syntax highlighting and search &mdash; much nicer than editing
-            over a terminal editor for large projects. (That said, learn enough
-            <code>vim</code> to make quick edits on any machine.)
+            so you can edit files on remote machines directly from your laptop,
+            with full syntax highlighting and search &mdash; much nicer than
+            editing over a terminal editor for large projects. On lxplus, use
+            the <b>Remote &mdash; SSH</b> extension. On OSCER, do not use
+            Remote &mdash; SSH. Connect through a Remote Tunnel instead, as
+            described under &ldquo;VS Code on Sooner&rdquo; in the OSCER tab.
+            (That said, learn enough <code>vim</code> to make quick edits on
+            any machine.)
           </p>
           <h3>Git</h3>
           <p>
@@ -238,6 +241,107 @@ sacct -j [jobid]       # accounting info for a finished job</code></pre>
             the job name and job ID. Make sure the <code>logs/</code>
             directory exists before submitting. Request only the resources you
             need &mdash; smaller jobs schedule faster.
+          </p>
+        </section>
+
+        <section>
+          <h2>VS Code on Sooner</h2>
+          <p>
+            You can edit and run code on Sooner from VS Code on your laptop.
+            <b>Do not use the Remote &mdash; SSH extension for this.</b> It
+            starts a VS Code server on the login node, and a few of those at
+            once can crash the login nodes for every OSCER user. Instead, run
+            the server as a batch job on a compute node and connect to it
+            through a Remote Tunnel. These steps follow OSCER&rsquo;s
+            <a href="https://www.ou.edu/oscer/applications/vs-code" rel="noopener">VS Code
+            guide</a>, which has more detail and troubleshooting.
+          </p>
+          <h3>One-time setup</h3>
+          <ol>
+            <li>On your laptop, install VS Code and the <b>Remote &mdash; Tunnels</b>
+              extension (published by Microsoft). Note your VS Code version
+              (<b>Help &rarr; About</b>, or <b>Code &rarr; About Visual Studio Code</b>
+              on macOS).</li>
+            <li>Make a <a href="https://github.com/signup" rel="noopener">GitHub account</a>
+              if you do not have one. Tunnels sign in through GitHub.</li>
+          </ol>
+          <p>
+            On Sooner, download the VS Code command-line tool into your home
+            directory. Its version must match the VS Code on your laptop:
+          </p>
+          <pre><code>cd ~
+VERSION=1.124.0   # your laptop's VS Code version
+curl -Lk "https://update.code.visualstudio.com/$VERSION/cli-alpine-x64/stable" --output vscode_cli.tar.gz
+tar -xf vscode_cli.tar.gz &amp;&amp; rm vscode_cli.tar.gz</code></pre>
+          <p>
+            This leaves an executable called <code>code</code> in your home
+            directory. Then save this job script as
+            <code>~/vscode.sbatch</code>:
+          </p>
+          <pre><code>#!/bin/bash
+#SBATCH --partition=ouheptmp
+#SBATCH --container=el9hw
+#SBATCH --job-name=vscode
+#SBATCH --output=vscode_%j.out
+#SBATCH --time=4:00:00
+#SBATCH --ntasks=1
+#SBATCH --mem=4G
+
+# remove stale server files that can block startup
+rm -rf ~/.vscode
+
+# keep temporary files out of the small /tmp
+export TMPDIR=/scratch/$USER/tmp
+mkdir -p $TMPDIR
+
+# unique tunnel name: [username]-[node]
+TUNNELNAME=$USER-$(hostname -s)
+echo "Tunnel name: $TUNNELNAME"
+$HOME/code tunnel --accept-server-license-terms --name=$TUNNELNAME</code></pre>
+          <p>
+            Raise <code>--time</code> or <code>--mem</code> if you need a
+            longer session or heavier work inside VS Code.
+          </p>
+          <h3>Each session</h3>
+          <p>From your home directory on Sooner, submit the job:</p>
+          <pre><code>sbatch vscode.sbatch</code></pre>
+          <p>
+            Once it is running (check with <code>squeue -u $USER</code>),
+            watch its output:
+          </p>
+          <pre><code>tail -f vscode_[jobid].out</code></pre>
+          <p>
+            It prints a GitHub device-login URL and an 8-character code. Open
+            the URL on your laptop and enter the code. The job then prints a
+            link like <code>https://vscode.dev/tunnel/[username]-[node]</code>.
+            The last part is your tunnel name.
+          </p>
+          <p>
+            In VS Code on your laptop, open the Command Palette
+            (<code>Ctrl+Shift+P</code>, or <code>Cmd+Shift+P</code> on macOS),
+            run <b>Remote-Tunnels: Connect to Tunnel</b>, sign in to GitHub,
+            and pick your tunnel. Open your working directory and code as
+            usual. Terminals opened in VS Code run on the compute node.
+            Extensions such as Python and Jupyter must be installed again on
+            the remote side, and you should select your mamba environment as
+            the Python interpreter.
+          </p>
+          <p>When you are done:</p>
+          <ol>
+            <li>Close the connection: click the remote indicator in the
+              lower-left corner and choose <b>Close Remote Connection</b>.</li>
+            <li>Unregister the tunnel: in Remote Explorer, right-click the
+              tunnel and choose <b>Unregister Tunnel</b>. If you skip this,
+              your next session fails with &ldquo;tunnel name already in
+              use&rdquo;.</li>
+            <li>Cancel the job with <code>scancel [jobid]</code>.</li>
+          </ol>
+          <p>
+            If the job hits its time limit, unregister the tunnel and submit
+            again. After updating VS Code on your laptop, download the
+            matching command-line tool, clear the old server files with
+            <code>rm -rf ~/.vscode ~/.vscode-server</code>, and authorize
+            again.
           </p>
         </section>
 
